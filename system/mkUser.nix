@@ -14,7 +14,7 @@ in
   };
 
 	imports = [
-		(import ./home/manager.nix { profile = profile; })
+		(import ../home/manager.nix { profile = profile; })
 	];
 }
 

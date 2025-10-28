@@ -18,14 +18,14 @@ in
 
   imports = [
 		./hardware.nix
-		./system.nix
+		./system/config.nix
 		./power.nix
+		./locale.nix
+		(import "${home-manager}/nixos")
+		(import ./system/mkUser.nix { profile = builtins.elemAt profile 0; })
+		(import ./system/mkUser.nix { profile = builtins.elemAt profile 1; })
 		# <catppuccin/modules/nixos>
 		# <home-manager/nixos>
-		(import "${home-manager}/nixos")
-		./locale.nix
-		(import ./user-setup.nix { profile = builtins.elemAt profile 0; })
-		(import ./user-setup.nix { profile = builtins.elemAt profile 1; })
 	];
   
   # Configure network proxy if necessary

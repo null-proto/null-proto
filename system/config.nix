@@ -107,6 +107,10 @@ in
     fish.enable = true;
     adb.enable = true;
 		ssh.startAgent = true;
+		tmux = {
+			enable = true;
+			extraConfig = (import ./tmux.nix).config;
+		};
 
   #   hyprland = {
   #     enable = true;
@@ -125,7 +129,7 @@ in
     
     dfrs gdu
     
-    neovim ripgrep tmux tree fzf
+    ripgrep tree fzf
     
     openssh wget curl binutils
 

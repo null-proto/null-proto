@@ -115,6 +115,10 @@ in
   };
 
   environment.systemPackages = with pkgs; [
+	  tcpdump
+		arping
+		netcat
+
     acpi brightnessctl
 
     htop btop atop
@@ -133,6 +137,7 @@ in
 
 		nixd
 		git
+		git-lfs
 		dconf
 
 		unzip 

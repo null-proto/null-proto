@@ -8,6 +8,8 @@ let
   # hyprland = inputs.hyprland.packages.${pkgs.hyprland}.hyprland;
 in
 {
+
+	home-manager.backupFileExtension = "backup";
   
   home-manager.useGlobalPkgs = true;
 	nixpkgs.config.allowUnfree = true;

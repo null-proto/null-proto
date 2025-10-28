@@ -10,11 +10,11 @@ in
     description = profile.fullname;
 		group = "wheel";
     extraGroups = [ "networkmanager" "video" "audio" "kvm" "disk" "adbusers" "docker" ];
-    packages = with pkgs; [];
+    packages = [];
   };
 
 	imports = [
-		(import ./home-manager.nix { profile = profile; })
+		(import ./home/manager.nix { profile = profile; })
 	];
 }
 

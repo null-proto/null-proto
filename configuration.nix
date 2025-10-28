@@ -17,7 +17,7 @@ in
   };
 
   imports = [
-		./hardware-configuration.nix
+		./hardware.nix
 		./system.nix
 		./power.nix
 		# <catppuccin/modules/nixos>

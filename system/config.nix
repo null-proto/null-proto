@@ -11,7 +11,7 @@
     greetd = {
       enable = true;
       settings = {
-      	default_session = let tuigreet = "${pkgs.tuigreet}/bin/tuigreet"; in {
+      	default_session = let tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet"; in {
 					command = "${tuigreet} --time --remember --remember-session --sessions ${pkgs.hyprland}/share/wayland-session";
           session = "${pkgs.hyprland}/share/wayland-session";
 					user = "greeter";
@@ -154,10 +154,5 @@
 #-- un-free & sus
 		_7zz
 		unrar
-
-		android-studio
-		firefox
-		obs-studio
-		blender
   ];
 }

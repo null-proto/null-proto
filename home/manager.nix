@@ -16,6 +16,8 @@ in
 
   home-manager.users.${profile.username} = { pkgs, ... }: {
     home.packages = with pkgs; [
+		  firefox
+
 			kitty
 			alacritty
 			alacritty-theme
@@ -55,6 +57,8 @@ in
 			fish-lsp
 			bash-language-server
 			tailwindcss-language-server
+
+			android-studio
     ];
 
 
@@ -66,7 +70,7 @@ in
     programs = {
 			rofi = {
 				enable = true;
-				package = pkgs.rofi.override { plugins= [ pkgs.rofi-emoji pkgs.rofi-calc ];};
+				package = pkgs.rofi-wayland.override { plugins= [ pkgs.rofi-emoji pkgs.rofi-calc ];};
 			};
 
 			ripgrep.enable = true;

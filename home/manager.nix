@@ -16,17 +16,9 @@ in
 
   home-manager.users.${profile.username} = { pkgs, ... }: {
     home.packages = with pkgs; [
-		  firefox
 			kitty
 			alacritty
 			alacritty-theme
-
-			obs-studio
-
-			blender
-			gimp3
-
-			inkscape-with-extensions
 
 			papers
 			audacious
@@ -63,8 +55,6 @@ in
 			fish-lsp
 			bash-language-server
 			tailwindcss-language-server
-
-			android-studio
     ];
 
 

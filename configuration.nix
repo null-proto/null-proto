@@ -23,7 +23,6 @@ in
 		./locale.nix
 		(import "${home-manager}/nixos")
 		(import ./system/mkUser.nix { profile = builtins.elemAt profile 0; })
-		(import ./system/mkUser.nix { profile = builtins.elemAt profile 1; })
 		# <catppuccin/modules/nixos>
 		# <home-manager/nixos>
 	];
@@ -64,5 +63,6 @@ in
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
 
-  system.stateVersion = "25.05"; # Did you read the comment? no!
+  # system.stateVersion = "25.05"; # Did you read the comment? no!
+  system.stateVersion = "25.11"; # Did you read the comment? no!
 }

@@ -154,5 +154,10 @@
 #-- un-free & sus
 		_7zz
 		unrar
+
+		android-studio
+		firefox
+		obs-studio
+		blender
   ];
 }

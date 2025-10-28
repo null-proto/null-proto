@@ -98,9 +98,7 @@ hyprConfig =  {
 	    };
 	};
 
-	gestures = {
-	    workspace_swipe = "false";
-	};
+	gestures = [ ];
 
 	device = {
 	    name = "epic-mouse-v1";

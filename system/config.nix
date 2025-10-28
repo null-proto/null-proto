@@ -1,7 +1,4 @@
 { pkgs ,...}:
-let
-  tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
-in
 {
   services = {
 		speechd.enable = false;
@@ -14,7 +11,7 @@ in
     greetd = {
       enable = true;
       settings = {
-      	default_session = {
+      	default_session = let tuigreet = "${pkgs.tuigreet}/bin/tuigreet"; in {
 					command = "${tuigreet} --time --remember --remember-session --sessions ${pkgs.hyprland}/share/wayland-session";
           session = "${pkgs.hyprland}/share/wayland-session";
 					user = "greeter";

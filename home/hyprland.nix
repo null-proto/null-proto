@@ -17,35 +17,35 @@ hyprConfig =  {
   ];
 
   general = {
-    gaps_in = "10";
-    gaps_out = "40";
-    border_size = "2";
+    gaps_in = 10;
+    gaps_out = 40;
+    border_size = 2;
     "col.active_border" = "rgb(313244)";
     "col.inactive_border" = "rgba(31324433)";
-    resize_on_border = "true";
-    allow_tearing = "false";
+    resize_on_border = true;
+    allow_tearing = false;
     layout = "dwindle";
   };
 
   decoration = {
-    rounding = "3";
-    rounding_power = "3";
+    rounding = 3;
+    rounding_power = 3;
       active_opacity = "1.0";
       blur = {
-        enabled = "true";
-        size = "0";
-        passes = "6";
-        new_optimizations = "true";
+        enabled = true;
+        size = 0;
+        passes = 6;
+        new_optimizations = true;
         vibrancy = "0.1696";
       };
     shadow = {
-      enabled = "false";
+      enabled = false;
     };
   };
 
   animations = {
-    enabled = "false";
-    # first_launch_animation = "false";
+    enabled = false;
+    # first_launch_animation = false;
     bezier = [ "myBezier, 0.05, 0.5, 0.9, 1" ];
     # animation = [ "windows, 1, 4, default , popin 80% , fade 20%" "workspaces, 1, 2, default" ];
     "animation" = [
@@ -55,46 +55,46 @@ hyprConfig =  {
   };
 
   "dwindle" = {
-    "pseudotile" = "true";
-    "preserve_split" = "true";
+    "pseudotile" = true;
+    "preserve_split" = true;
   };
 
   "master" = { "new_status" = "master"; };
 
-  "group:groupbar" = { "enabled" = "false"; };
+  "group:groupbar" = { "enabled" = false; };
 
   misc = {
-    enable_anr_dialog = "false";
-    force_default_wallpaper = "0";
-    disable_hyprland_logo = "true";
-    disable_splash_rendering = "true";
-    vrr = "0";
-    enable_swallow = "false";
-    mouse_move_enables_dpms = "true";
-    key_press_enables_dpms = "true";
-    layers_hog_keyboard_focus = "true";
-    animate_manual_resizes = "false";
+    enable_anr_dialog = false;
+    force_default_wallpaper = 0;
+    disable_hyprland_logo = true;
+    disable_splash_rendering = true;
+    vrr = 0;
+    enable_swallow = false;
+    mouse_move_enables_dpms = true;
+    key_press_enables_dpms = true;
+    layers_hog_keyboard_focus = true;
+    animate_manual_resizes = false;
   };
 
   ecosystem = {
-    no_update_news = "true";
+    no_update_news = true;
   };
 
   input = {
       kb_layout = "us";
-      follow_mouse = "1";
+      follow_mouse = 1;
       sensitivity = "0.7";
-      repeat_delay = "300";
-      repeat_rate = "30";
+      repeat_delay = 300;
+      repeat_rate = 30;
 
       touchpad = {
-        disable_while_typing = "true";
-        tap-to-click = "true";
-        tap-and-drag = "true";
+        disable_while_typing = true;
+        tap-to-click = true;
+        tap-and-drag = true;
         tap_button_map = "lrm";
-        natural_scroll = "false";
+        natural_scroll = false;
         scroll_factor = "1.0";
-        middle_button_emulation = "false";
+        middle_button_emulation = false;
       };
   };
 

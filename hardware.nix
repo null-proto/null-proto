@@ -5,13 +5,13 @@
 
 {
   imports = [
-		(modulesPath + "/installer/scan/not-detected.nix")
+    (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
   boot = {
     loader = {
       systemd-boot.enable = true;
-			systemd-boot.configurationLimit = 5;
+      systemd-boot.configurationLimit = 5;
       efi.canTouchEfiVariables = false;
     };
     

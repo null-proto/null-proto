@@ -6,9 +6,9 @@ in
   users.users.${profile.username} = {
     shell = pkgs.fish;
     isNormalUser = true;
-		home = profile.homeDir;
+    home = profile.homeDir;
     description = profile.fullname;
-		group = "wheel";
+    group = "wheel";
     extraGroups = [ "networkmanager" "video" "audio" "kvm" "disk" "adbusers" "docker" ];
     packages = [];
   };

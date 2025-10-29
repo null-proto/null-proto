@@ -1,20 +1,20 @@
 { pkgs ,...}:
 {
   services = {
-		speechd.enable = false;
-		orca.enable = false;
-		ntp.enable = false;
-		timesyncd.enable = true;
-		# nscd.package = pkgs.glibc;
-		
+    speechd.enable = false;
+    orca.enable = false;
+    ntp.enable = false;
+    timesyncd.enable = true;
+    # nscd.package = pkgs.glibc;
+    
 
     greetd = {
       enable = true;
       settings = {
-      	default_session = let tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet"; in {
-					command = "${tuigreet} --time --remember --remember-session --sessions ${pkgs.hyprland}/share/wayland-session";
+        default_session = let tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet"; in {
+          command = "${tuigreet} --time --remember --remember-session --sessions ${pkgs.hyprland}/share/wayland-session";
           session = "${pkgs.hyprland}/share/wayland-session";
-					user = "greeter";
+          user = "greeter";
         };
       };
     };
@@ -34,29 +34,29 @@
 
     keyd = {
       enable = true;
-			keyboards = {
-				default = {
-					ids = [ "*" ];
-					settings = {
-						main = {
-							capslock = "overload(control,esc)";
-							esc = "capslock";
-						};
-					otherlayer = {};
-					}; # extraConfig = '''';
-				};
-			};
+      keyboards = {
+        default = {
+          ids = [ "*" ];
+          settings = {
+            main = {
+              capslock = "overload(control,esc)";
+              esc = "capslock";
+            };
+          otherlayer = {};
+          }; # extraConfig = '''';
+        };
+      };
     };
 
-		# polkit.extraConfig = ''
-		# 	/* Allow local users to mount system disks */
-		# 	polkit.addRule(function(action, subject) {
-		# 		if ( subject.local && action.id == "org.freedesktop.udisks2.filesystem-mount-system") {
-		# 			return polkit.Result.YES;
-		# 		}
-		# });
-		# '';
-	};
+    # polkit.extraConfig = ''
+    #   /* Allow local users to mount system disks */
+    #   polkit.addRule(function(action, subject) {
+    #     if ( subject.local && action.id == "org.freedesktop.udisks2.filesystem-mount-system") {
+    #       return polkit.Result.YES;
+    #     }
+    # });
+    # '';
+  };
 
   systemd.services.greetd.serviceConfig = {
     Type = "idle";
@@ -68,13 +68,13 @@
     TTYVTDisallocate = true;
   };
 
-	# systemd.user.services.hyprland = {
-	# 	description = "Hyprland Wayland session";
-	# 	after = [ "graphical.target" ];
-	# 	serviceConfig.ExecStart = "${pkgs.hyprland}/bin/Hyprland";
-	# 	wantedBy = [ "default.target" ];
-	# 	enable = true;
-	# };
+  # systemd.user.services.hyprland = {
+  #   description = "Hyprland Wayland session";
+  #   after = [ "graphical.target" ];
+  #   serviceConfig.ExecStart = "${pkgs.hyprland}/bin/Hyprland";
+  #   wantedBy = [ "default.target" ];
+  #   enable = true;
+  # };
 
   
   networking = {
@@ -83,9 +83,9 @@
   };
 
   time = {
-	  hardwareClockInLocalTime = false;
-		timeZone = "Asia/Kolkata";
-	};
+    hardwareClockInLocalTime = false;
+    timeZone = "Asia/Kolkata";
+  };
   
   security = {
     sudo = {
@@ -97,17 +97,17 @@
   };
   
   programs = {
-		neovim = {
-			enable = true;
-			defaultEditor = true;
-		};
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+    };
     fish.enable = true;
     adb.enable = true;
-		ssh.startAgent = true;
-		tmux = {
-			enable = true;
-			extraConfig = (import ./tmux.nix).config;
-		};
+    ssh.startAgent = true;
+    tmux = {
+      enable = true;
+      extraConfig = (import ./tmux.nix).config;
+    };
 
   #   hyprland = {
   #     enable = true;
@@ -116,9 +116,9 @@
   };
 
   environment.systemPackages = with pkgs; [
-	  tcpdump
-		arping
-		netcat
+    tcpdump
+    arping
+    netcat
 
     acpi brightnessctl
 
@@ -130,29 +130,29 @@
     
     openssh wget curl binutils
 
-		docker openssh openssl
+    docker openssh openssl
 
-		usbutils binutils libinput coreutils-full lsof
+    usbutils binutils libinput coreutils-full lsof
 
-		curl nmap nettools iputils
+    curl nmap nettools iputils
 
-		nixd
-		git
-		git-lfs
-		dconf
+    nixd
+    git
+    git-lfs
+    dconf
 
-		unzip 
-		gzip 
-		unrar
-		xz
-		lz4
+    unzip 
+    gzip 
+    unrar
+    xz
+    lz4
 
-		btrfs-progs btrfs-heatmap 
+    btrfs-progs btrfs-heatmap 
 
-		ffmpeg
+    ffmpeg
 
 #-- un-free & sus
-		_7zz
-		unrar
+    _7zz
+    unrar
   ];
 }

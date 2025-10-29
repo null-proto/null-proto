@@ -1,14 +1,14 @@
 {
-	global = {
-		origin = "bottom-right";
-		offset = "(10,10)";
-		width = 340;
-		height = "(60,340)";
-		scale = 0;
-		notification_limit = 20;
-		progress_bar = true;
-		progress_bar_height = 15;
-		progress_bar_frame_width = "0.5";
+  global = {
+    origin = "bottom-right";
+    offset = "(10,10)";
+    width = 340;
+    height = "(60,340)";
+    scale = 0;
+    notification_limit = 20;
+    progress_bar = true;
+    progress_bar_height = 15;
+    progress_bar_frame_width = "0.5";
 
     # Set the minimum width for the progress bar
     progress_bar_min_width = 200;
@@ -23,7 +23,7 @@
     # is set to 0 this option will be ignored.
     progress_bar_corners = "all";
     
-		highlight = "#7c7f93";
+    highlight = "#7c7f93";
 
     # Corner radius for the icon image.
     icon_corner_radius = 0;
@@ -188,7 +188,7 @@
     max_icon_size = 48;
 
     # Paths to default icons (only necessary when not using recursive icon lookup)
-		icon_path = "~/.icons/Colloid-Light/apps/scalable";
+    icon_path = "~/.icons/Colloid-Light/apps/scalable";
 
     ### History ###
 
@@ -276,7 +276,7 @@
     mouse_left_click = "close_current";
     mouse_middle_click = "do_action"; # , close_current
     mouse_right_click = "close_all";
-	};
+  };
 
   experimental = {
     # Calculate the dpi to use on a per-monitor basis.
@@ -285,9 +285,9 @@
     # using the resolution and physical size. This might be useful in setups
     # where there are multiple screens with very different dpi values.
     per_monitor_dpi = false;
-	};
+  };
 
-	urgency_low = {
+  urgency_low = {
     background = "#eff1f5";
     foreground = "#4c4f69";
     frame_color = "#bcc0cc";
@@ -295,7 +295,7 @@
     override_pause_level = 30;
     # Icon for notifications with normal urgency
     default_icon = "~/.config/dunst/icons/question.svg";
-	};
+  };
   urgency_normal = {
     background = "#eff1f5";
     foreground = "#4c4f69";
@@ -304,7 +304,7 @@
     override_pause_level = 30;
     # Icon for notifications with normal urgency
     default_icon = "~/.config/dunst/icons/megaphone.svg";
-	};
+  };
 
   urgency_critical = {
     background = "#eff1f5";
@@ -314,6 +314,6 @@
     override_pause_level = 30;
     # Icon for notifications with normal urgency
     default_icon = "~/.config/dunst/icons/siren.svg";
-	};
+  };
 
 }

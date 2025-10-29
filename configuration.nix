@@ -16,14 +16,14 @@ in
   };
 
   imports = [
-		./hardware.nix
-		./system/config.nix
-		./power.nix
-		./locale.nix
-		./system/mkUser.nix
-		# <catppuccin/modules/nixos>
-		# <home-manager/nixos>
-	];
+    ./hardware.nix
+    ./system/config.nix
+    ./power.nix
+    ./locale.nix
+    ./system/mkUser.nix
+    # <catppuccin/modules/nixos>
+    # <home-manager/nixos>
+  ];
   
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";

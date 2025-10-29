@@ -1,5 +1,5 @@
 {
-	config = ''
+  config = ''
 unbind-key C-b
 set-option -g prefix m-x
 bind-key M-x send-prefix
@@ -86,6 +86,6 @@ bind -T copy-mode-vi Escape send -X cancel
 # set -g @plugin 'tmux-plugins/tpm'
 # set -g @plugin 'tmux-plugins/tmux-sensible'
 # run '~/.tmux/plugins/tpm/tpm'
-	'';
+  '';
 
 }

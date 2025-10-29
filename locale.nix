@@ -15,7 +15,7 @@
     LC_TIME = "en_IN";
   };
 
-	console = {
+  console = {
     earlySetup = true;
     font = "ter-i18b";
     packages = with pkgs; [ terminus_font ];
@@ -32,7 +32,7 @@
       nerd-fonts.fira-code
       nerd-fonts.jetbrains-mono
       nerd-fonts.comic-shanns-mono
-			terminus_font
+      terminus_font
     ];
   };
 

@@ -23,13 +23,7 @@
 						home-manager.backupFileExtension = "backup";
 						home-manager.useGlobalPkgs = true;
 						home-manager.useUserPackages = true;
-						home-manager.users.${profile.username} = ./home/config.nix;
-
-						imports = [
-							(import ./home/config.nix { profile = builtins.elemAt profile 0; })
-						];
-
-
+						home-manager.users.${profile.username} = ./home/config.nix ;
 					}
         ];
         specialArgs = attr;

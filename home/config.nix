@@ -1,4 +1,4 @@
-{ inputs , config, pkgs, lib , nixpkgs, ... }:
+{ pkgs, ... }:
 let
   inherit (import ./hyprland.nix) hyprConfig;
 in {

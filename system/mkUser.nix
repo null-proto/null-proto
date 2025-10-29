@@ -1,6 +1,6 @@
-{ profile }:
 { config , pkgs , inputs , lib , ...}:
 let 
+  inherit (import ../users.nix) profile;
 in
 {
   users.users.${profile.username} = {
@@ -12,9 +12,5 @@ in
     extraGroups = [ "networkmanager" "video" "audio" "kvm" "disk" "adbusers" "docker" ];
     packages = [];
   };
-
-	imports = [
-		(import ../home/manager.nix { profile = profile; })
-	];
 }
 

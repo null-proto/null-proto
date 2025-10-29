@@ -3,11 +3,10 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 # { pkgs, ... }:
-{ home-manager, ... }:
+{...}:
 let
   # home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz";
 
-	inherit (import ./users.nix) profile;
 in
 
 {
@@ -21,8 +20,7 @@ in
 		./system/config.nix
 		./power.nix
 		./locale.nix
-		(import "${home-manager}/nixos")
-		(import ./system/mkUser.nix { profile = builtins.elemAt profile 0; })
+		./system/mkUser.nix
 		# <catppuccin/modules/nixos>
 		# <home-manager/nixos>
 	];

@@ -22,7 +22,7 @@ set -g status-position bottom
 set -g status-justify left
 set -g status-style 'fg=#f38ba8'
 
-set -g status-left ""
+set -g status-left " Tmux "
 set -g status-left-style ",bold"
 set -g status-left-length 10
 

@@ -1,10 +1,14 @@
-{ pkgs, catppuccin, ... }:
+{
+
+  description = "System derivations";
+inputs = {
+
+};
+
+outputs = { pkgs, ... }:
 let
   inherit (import ./hyprland.nix) hyprConfig;
-	inherit (import ./colors.nix) catppuccin;
 in {
-	catppuccin = catppuccin;
-
   home.packages = with pkgs; [
     kitty
     alacritty
@@ -16,7 +20,6 @@ in {
 		delta
     imv
     mpv
-    bat
 
 
     jmtpfs
@@ -78,6 +81,20 @@ in {
       enable = true;
       extraConfig = (import ./tmux.nix).config;
     };
+
+		bat = {
+			enable = true;
+			# themes = {
+			# 	catppuccin-mocha = {
+			#           src = catppuccin-bat;
+			#           file = "extras/Catppuccin%20Mocha.tmTheme";
+			#      };
+			# };
+
+			config = {
+       theme = "catppuccin-mocha";
+			};
+		};
 
     ripgrep.enable = true;
 
@@ -187,4 +204,5 @@ env = VISUAL,nvim
   # The state version is required and should stay at the version you
   # originally installed.
   home.stateVersion = "25.05";
+};
 }

@@ -5,13 +5,13 @@
 # so lets modify
 
 { config, modulesPath, ... }:
-
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
-    ./fs.nix
-    ./boot.nix
-  ];
+		./boot.nix
+	  ./fs.nix
+	];
+
   # nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   
   # hardware.enableRedistributableFirmware = true;

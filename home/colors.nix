@@ -1,9 +1,4 @@
-{ catppuccin , ... } :{
-
-	imports = [
-	  catppuccin.homeModules.catppuccin
-	];
-
+{
 	catppuccin = {
 		accent = "blue";
 		enable = false;

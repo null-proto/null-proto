@@ -1,10 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, catppuccin, ... }:
 let
   inherit (import ./hyprland.nix) hyprConfig;
+	inherit (import ./colors.nix) catppuccin;
 in {
-	imports = [
-	  ./color.nix
-	];
+	catppuccin = catppuccin;
 
   home.packages = with pkgs; [
     kitty
@@ -14,6 +13,7 @@ in {
     playerctl
     papers
     audacious
+		delta
     imv
     mpv
     bat

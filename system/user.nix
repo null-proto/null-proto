@@ -1,4 +1,4 @@
-{ config , pkgs , inputs , lib , ...}:
+{ pkgs ,... }:
 let 
   inherit (import ../users.nix) profile;
 in

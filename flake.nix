@@ -16,7 +16,12 @@
       nix = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./configuration.nix
+          ./config.nix
+          ./machine/config.nix
+          ./system/config.nix
+          ./system/locale.nix
+          ./system/user.nix
+
           home-manager.nixosModules.home-manager {
             home-manager.backupFileExtension = "backup";
             home-manager.useGlobalPkgs = true;

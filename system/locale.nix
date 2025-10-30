@@ -1,8 +1,9 @@
 {  pkgs, ... }:
 {
-  # Select internationalisation properties.
+  # default spelling 
   i18n.defaultLocale = "en_US.UTF-8";
-
+  
+  # local measurements
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_IN";
     LC_IDENTIFICATION = "en_IN";
@@ -32,6 +33,8 @@
       nerd-fonts.fira-code
       nerd-fonts.jetbrains-mono
       nerd-fonts.comic-shanns-mono
+      nerd-fonts.victor-mono
+      maple-mono.NF 
       terminus_font
     ];
   };

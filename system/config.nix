@@ -1,4 +1,4 @@
-{ pkgs ,...}:
+{ pkgs , lib ,... }:
 {
   services = {
     speechd.enable = false;
@@ -80,6 +80,13 @@
   networking = {
     hostName = "nix";
     networkmanager.enable = true;
+		# Enables DHCP on each ethernet and wireless interface. In case of scripted networking
+		# (the default) this is the recommended approach. When using systemd-networkd it's
+		# still possible to use this option, but it's recommended to use it in conjunction
+		# with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
+		useDHCP = lib.mkDefault true;
+		# networking.interfaces.eno2.useDHCP = lib.mkDefault true;
+		# networking.interfaces.enp0s20f0u5.useDHCP = lib.mkDefault true;
   };
 
   time = {
@@ -104,10 +111,6 @@
     fish.enable = true;
     adb.enable = true;
     ssh.startAgent = true;
-    tmux = {
-      enable = true;
-      extraConfig = (import ./tmux.nix).config;
-    };
 
   #   hyprland = {
   #     enable = true;
@@ -120,21 +123,39 @@
     arping
     netcat
 
-    acpi brightnessctl
+    acpi
+    brightnessctl
 
-    htop btop atop
+    htop
+    btop
+    atop
     
-    dfrs gdu
+    dfrs
+    gdu
     
-    ripgrep tree fzf
+    ripgrep
+    tree
+    fzf
     
-    openssh wget curl binutils
+    openssh
+    wget
+    curl
+    binutils
 
-    docker openssh openssl
+    docker
+    openssh
+    openssl
 
-    usbutils binutils libinput coreutils-full lsof
+    usbutils
+    binutils
+    libinput
+    coreutils-full
+    lsof
 
-    curl nmap nettools iputils
+    curl
+    nmap
+    nettools
+    iputils
 
     nixd
     git
@@ -147,11 +168,10 @@
     xz
     lz4
 
-    btrfs-progs btrfs-heatmap 
+    btrfs-progs
+    btrfs-heatmap 
 
-    ffmpeg
-
-#-- un-free & sus
+    #-- un-free & sus
     _7zz
     unrar
   ];

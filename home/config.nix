@@ -7,34 +7,41 @@ in {
     alacritty
     alacritty-theme
 
+    playerctl
     papers
     audacious
+    imv
+    mpv
+    bat
+
+
+    jmtpfs
+    lf
+    gdb
+    gef
+    ffmpeg
+
+    hyprpaper
+    hyprpicker
 
     neofetch
     fastfetch
-    imv mpv
-    bat
     fzf
-    lf
     zoxide
     lsd
     cyme
     typos-lsp
     nautilus
     waybar
-    hyprpaper
-    hyprpicker
     slurp
     grim
     qemu
     gh
     nwg-look
-    playerctl
     xdg-desktop-portal
     xdg-desktop-portal-wlr
     wl-clipboard
     cliphist
-    jmtpfs
 
     yaml-language-server
     vscode-langservers-extracted
@@ -61,6 +68,11 @@ in {
     rofi = {
       enable = true;
       package = pkgs.rofi-wayland.override { plugins= [ pkgs.rofi-emoji pkgs.rofi-calc ];};
+    };
+
+    tmux = {
+      enable = true;
+      extraConfig = (import ./tmux.nix).config;
     };
 
     ripgrep.enable = true;

@@ -16,11 +16,6 @@ in
   };
 
   imports = [
-    ./hardware.nix
-    ./system/config.nix
-    ./power.nix
-    ./locale.nix
-    ./system/mkUser.nix
     # <catppuccin/modules/nixos>
     # <home-manager/nixos>
   ];

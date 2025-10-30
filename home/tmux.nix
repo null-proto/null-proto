@@ -20,13 +20,13 @@ setw -g mode-style 'fg=#181825 bg=#f38ba8'
 
 set -g status-position bottom
 set -g status-justify left
-set -g status-style 'fg=#f38ba8'
+set -g status-style 'fg=#f38ba8 ,'
 
-set -g status-left " Tmux "
-set -g status-left-style ",bold"
-set -g status-left-length 10
+set -g status-left " #{session_name} "
+set -g status-left-style "fg=#f38ba8 bg=#181825 ,bold"
+# set -g status-left-length 10
 
-set -g status-right '  #(date "+%Y-%m-%d %H:%M") │  #{pane_current_command} │  #{pane_index}:#{pane_id} '
+set -g status-right '  #{=25:pane_current_path} │ P󰻾 #{client_pid} │  #{pane_index}:#{window_panes} '
 set -g status-right-style 'fg=#181825 bg=#fab387'
 set -g status-right-length 50
 

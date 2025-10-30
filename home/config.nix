@@ -2,6 +2,10 @@
 let
   inherit (import ./hyprland.nix) hyprConfig;
 in {
+	imports = [
+	  ./color.nix
+	];
+
   home.packages = with pkgs; [
     kitty
     alacritty

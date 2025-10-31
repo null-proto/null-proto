@@ -11,14 +11,22 @@
 			];
 
 			"$mainMod" = "SUPER";
-			"$terminal" = "kitty";
-			"$fileManager" = "nautilus -w";
-			"$menu" = "rofi -config ~/.config/rofi/drun.rasi -modes calc,drun,run,combi,window,emoji,ssh -show";
-			"$menu_raw" = "rofi -dmenu -config ~/.config/rofi/drun.rasi";
+			"$terminal" = "${pkgs.kitty}/bin/kitty";
+			"$fileManager" = "${pkgs.nautilus}/bin/nautilus -w";
+			"$menu" = "${pkgs.rofi}/bin/rofi -show drun";
+			"$menu_raw" = "${pkgs.rofi}/bin/rofi -dmenu";
+			"$cliphist"="${pkgs.cliphist}/bin/cliphist";
+			"$ff" = "${pkgs.firefox}/bin/firefox";
+			"$swaylock" = "${pkgs.swaylock}/bin/swaylock";
+			"$girm" = "${pkgs.grim}/bin/grim";
+			"$slurp" = "${pkgs.slurp}/bin/slurp";
+			"$brightnessctl" = "${pkgs.brightnessctl}/bin/brightnessctl";
+			"$playerctl" = "${pkgs.playerctl}/bin/playerctl";
+			"$wpctl" = "${pkgs.wireplumber}/bin/wpctl";
 
 			"exec-once" = [
-				"waybar"
-				"hyprpaper"
+				"${pkgs.waybar}/bin/waybar"
+				"${pkgs.hyprpaper}/bin/hyprpaper"
 				"sleep 1 && hyprctl keyword animations:enabled true"
 			];
 
@@ -155,12 +163,12 @@
 
 				"$mainMod SHIFT, W,exec, $menu emoji"
 				"$mainMod SHIFT, D,exec, $menu drun"
-				"$mainMod SHIFT, E,exec, firefox"
-				"$mainMod SHIFT, Y,exec, cliphist list | $menu_raw  | cliphist decode | wl-copy"
+				"$mainMod SHIFT, E,exec, $ff"
+				"$mainMod SHIFT, Y,exec, $cliphist list | $menu_raw  | $cliphist decode | wl-copy"
 
 				"$mainMod SHIFT, Q, killactive,"
 				"$mainMod SHIFT, M, exit,"
-				"$mainMod, Z, exec, swaylock -c 1e1e2e --indicator-idle-visible -t --indicator-radius 200 --indicator-thickness 20 --ring-color 181825 --ring-clear-color 0070ff --separator-color 45475a --key-hl-color cdd6f4 --inside-color 11111b --inside-clear-color 94e2d5 --inside-caps-lock-color 45475a --inside-ver-color fab387 --inside-wrong-color f38ba8 -r --line-color 1e1e2e --line-clear-color 89dceb --line-caps-lock-color 313244 --line-ver-color f9e2af --line-wrong-color eba0ac --ring-color 181825 --ring-clear-color 89dceb --ring-caps-lock-color 313244 --ring-ver-color f9e2af --ring-wrong-color eba0ac --text-color 6c7086 --text-clear-color 313244 --text-caps-lock-color 181825 --text-ver-color f9e2af --text-wrong-color eba0ac"
+				"$mainMod, Z, exec, $swaylock -c 1e1e2e --indicator-idle-visible -t --indicator-radius 200 --indicator-thickness 20 --ring-color 181825 --ring-clear-color 0070ff --separator-color 45475a --key-hl-color cdd6f4 --inside-color 11111b --inside-clear-color 94e2d5 --inside-caps-lock-color 45475a --inside-ver-color fab387 --inside-wrong-color f38ba8 -r --line-color 1e1e2e --line-clear-color 89dceb --line-caps-lock-color 313244 --line-ver-color f9e2af --line-wrong-color eba0ac --ring-color 181825 --ring-clear-color 89dceb --ring-caps-lock-color 313244 --ring-ver-color f9e2af --ring-wrong-color eba0ac --text-color 6c7086 --text-clear-color 313244 --text-caps-lock-color 181825 --text-ver-color f9e2af --text-wrong-color eba0ac"
 				"$mainMod, left , movefocus, l"
 				"$mainMod, right, movefocus, r"
 				"$mainMod, up, movefocus, u"
@@ -198,25 +206,25 @@
 				#", Print, exec, grim && notify-send -u low system 'Copying visual' --icon image"
 				#"SHIFT , Print, exec, grim -g "$(slurp -d)" && notify-send -u low system 'Copying peremeter' --icon image"
 
-				",Print, exec, GRIM_DEFAULT_DIR=~/Pictures/Screenshots/ grim && dunstify -u low 'Copying visual' 'screenshot' --icon display"
-				"SHIFT , Print, exec,GRIM_DEFAULT_DIR=~/Pictures/Screenshots/ grim -g '$(slurp -d)' && dunstify -u low 'Copying peremeter' 'screensot' --icon display"
+				",Print, exec, GRIM_DEFAULT_DIR=~/Pictures/Screenshots/ $grim && dunstify -u low 'Copying visual' 'screenshot' --icon display"
+				"SHIFT , Print, exec,GRIM_DEFAULT_DIR=~/Pictures/Screenshots/ $grim -g '$($slurp -d)' && dunstify -u low 'Copying peremeter' 'screensot' --icon display"
 			];
 
 			bindl = [
 				", XF86Launch3 , exec , $menu drun"
 				", sleep-button , exec , $menu drun"
-				", XF86AudioHome, exec, firefox"
-				", XF86AudioPlay, exec, playerctl play-pause"
-				", XF86AudioPrev, exec, playerctl previous"
-				", XF86AudioNext, exec,playerctl next"
-				", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+				", XF86AudioHome, exec, $ff"
+				", XF86AudioPlay, exec, $playerctl play-pause"
+				", XF86AudioPrev, exec, $playerctl previous"
+				", XF86AudioNext, exec, $playerctl next"
+				", XF86AudioMute, exec, $wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
 			];
 
 			binde = [
-				", XF86MonBrightnessUp , exec , brightnessctl set 1+"
-				", XF86MonBrightnessDown , exec , brightnessctl set 1-"
-				", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-				", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+				", XF86MonBrightnessUp , exec , $brightnessctl set 1+"
+				", XF86MonBrightnessDown , exec , $brightnessctl set 1-"
+				", XF86AudioLowerVolume, exec, $wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+				", XF86AudioRaiseVolume, exec, $wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
 			];
 
 			bindm = [

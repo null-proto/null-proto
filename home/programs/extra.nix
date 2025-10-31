@@ -6,6 +6,7 @@
     playerctl
     papers
     audacious
+    nautilus
 
     jmtpfs
     lf
@@ -18,22 +19,20 @@
 
     neofetch
     fastfetch
-    zoxide
-    lsd
     cyme
-    typos-lsp
-    nautilus
-    waybar
     slurp
     grim
     qemu
     gh
     nwg-look
+
     xdg-desktop-portal
     xdg-desktop-portal-wlr
+
     wl-clipboard
     cliphist
 
+    typos-lsp
     yaml-language-server
     vscode-langservers-extracted
     lua-language-server

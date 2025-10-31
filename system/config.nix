@@ -127,7 +127,6 @@
     brightnessctl
 
     htop
-    btop
     atop
     
     dfrs
@@ -135,7 +134,6 @@
     
     ripgrep
     tree
-    fzf
     
     openssh
     wget

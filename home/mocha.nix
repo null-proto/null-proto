@@ -3,14 +3,19 @@
   catppuccin = {
     enable = false;
     flavor = "mocha";
-    accent = "mauve";
+    accent = "yellow";
 
-    btop.enable = true;
     bat.enable = true;
     mpv.enable = true;
     imv.enable = true;
     fzf.enable = true;
-    lsd.enable = true;
-    fish.enable = true;
+
+    btop = {
+      enable = true;
+    };
+
+    lsd = {
+      enable = true;
+    };
   };
 }

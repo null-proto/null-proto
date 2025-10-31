@@ -28,7 +28,7 @@
           catppuccin.nixosModules.catppuccin {
             catppuccin.enable = false;
             catppuccin.flavor = "mocha";
-            catppuccin.accent = "mauve";
+            catppuccin.accent = "yellow";
             catppuccin.tty.enable = true;
           }
 

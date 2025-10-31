@@ -1,5 +1,5 @@
 {
-  global = {
+  dunstConfig = {
     origin = "bottom-right";
     offset = "(10,10)";
     width = 340;

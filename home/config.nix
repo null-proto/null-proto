@@ -1,8 +1,9 @@
 { pkgs, ... }: let
-  inherit (import ./hyprland.nix) hyprConfig;
+  inherit (import ./programs/hyprland.nix) hyprConfig;
+	inherit (import ./programs/tmux.nix) tmuxConfig;
+	inherit (import ./programs/dunst.nix) dunstConfig;
 in {
   home.packages = with pkgs; [
-    kitty
     alacritty
     alacritty-theme
 
@@ -22,7 +23,6 @@ in {
 
     neofetch
     fastfetch
-    fzf
     zoxide
     lsd
     cyme
@@ -61,6 +61,47 @@ in {
       package =  pkgs.firefox;
     };
 
+		kitty = {
+			enable = true;
+
+			font = {
+				size = 10;
+				name = "JetBrainsMono Nerd Font";
+				bold.name = "JetBrainsMono Nerd Font bold";
+				italic.name = "maple mono nf";
+				italic_bold.name = "maple mono nf";
+			};
+
+			settings = {
+				modify_font = [ "cell_height 0.7px" "underline_position 4" "underline_thickness 150%" ];
+
+				window_padding_width = 2;
+				background_blur = 1;
+				underline_hyperlinks = "hover";
+				detect_urls = "yes";
+
+				cursor_beam_thickness = "1.5";
+				cursor_underline_thickness = "2.0";
+				cursor_blink_interval = -1;
+				cursor_stop_blinking_after = 15;
+
+				undercurl_style = "thick-sparse";
+
+				# url_color = "#0087bd";
+				url_style = "dashed"; # curly
+
+				enable_audio_bell = "no";
+
+				cursor_trail = 1;
+				cursor_trail_decay = "0.1 0.5";
+			};
+
+			keyBindings = {
+				"ctrl+shift+c" =  "copy_to_clipboard";
+				"ctrl+shift+v" = "paste_from_clipboard";
+			};
+		};
+
     rofi = {
       enable = true;
       package = pkgs.rofi-wayland.override { plugins= [ pkgs.rofi-emoji pkgs.rofi-calc ];};
@@ -68,7 +109,7 @@ in {
 
     tmux = {
       enable = true;
-      extraConfig = (import ./tmux.nix).config;
+      extraConfig = tmuxConfig;
     };
 
     bat = {
@@ -88,6 +129,7 @@ in {
     fzf.enable = true;
     btop.enable = true;
     ripgrep.enable = true;
+		lsd.enable = true;
 
     imv.enable = true;
     mpv.enable = true;
@@ -106,7 +148,7 @@ in {
     dunst = {
       package = pkgs.dunst;
       enable = true;
-      settings = (import ./dunst.nix);
+      settings = dunstConfig;
     };
   };
 

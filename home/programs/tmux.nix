@@ -1,5 +1,5 @@
 {
-  config = ''
+  tmuxConfig = ''
 unbind-key C-b
 set-option -g prefix m-x
 bind-key M-x send-prefix

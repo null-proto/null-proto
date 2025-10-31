@@ -1,5 +1,7 @@
-{
-  tmuxConfig = ''
+{ config , pkgs , ...}:{
+	programs.tmux = {
+		enable = true;
+		extraConfig = ''
 unbind-key C-b
 set-option -g prefix m-x
 bind-key M-x send-prefix
@@ -86,5 +88,5 @@ set-option -g allow-rename on
 # set -g @plugin 'tmux-plugins/tmux-sensible'
 # run '~/.tmux/plugins/tpm/tpm'
   '';
-
+	};
 }

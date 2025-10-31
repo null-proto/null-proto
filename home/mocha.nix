@@ -1,5 +1,4 @@
 {
-
   catppuccin = {
     enable = false;
     flavor = "mocha";

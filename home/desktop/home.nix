@@ -1,4 +1,4 @@
-{ pkgs , ... }:{
+{ lib ,pkgs , ... }:{
 
   home = {
 		pointerCursor = {
@@ -25,5 +25,7 @@
 			enableFishIntegration = true;
 			enableBashIntegration = true;
 		};
+
+		activation.afterSwitch = lib.mkAfter '' '';
 	};
 }

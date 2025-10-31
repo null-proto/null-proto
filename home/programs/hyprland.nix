@@ -13,8 +13,8 @@
 			"$mainMod" = "SUPER";
 			"$terminal" = "${pkgs.kitty}/bin/kitty";
 			"$fileManager" = "${pkgs.nautilus}/bin/nautilus -w";
-			"$menu" = "${pkgs.rofi}/bin/rofi -show drun";
-			"$menu_raw" = "${pkgs.rofi}/bin/rofi -dmenu";
+			"$menu" = "rofi -show";
+			"$menu_raw" = "rofi -dmenu";
 			"$cliphist"="${pkgs.cliphist}/bin/cliphist";
 			"$ff" = "${pkgs.firefox}/bin/firefox";
 			"$swaylock" = "${pkgs.swaylock}/bin/swaylock";

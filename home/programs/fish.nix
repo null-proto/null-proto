@@ -1,15 +1,14 @@
-{ config , pkgs , ... } :{
+{ config , lib , pkgs , ... } :{
 	programs.fish = {
 		enable = true;
 		shellAliases = {
 			lo = "command ls --color -lah";
-			ls = "lsd --group-directories-first";
-			ip = "ip -c";
-			vi = "nvim -u ~/.config/nvim/noconfig.lua";
-			vim = "nvim";
-			less = "less -Q --use-color";
-			man = "man -P 'less -Q'";
-			bat = "bat --theme='Catppuccin Mocha' -pn";
+			ls = lib.mkForce "${pkgs.lsd}/bin/lsd --group-directories-first";
+
+			ip = "${pkgs.iproute2}/bin/ip -c";
+			less = "${pkgs.less}/bin/less -Q --use-color";
+			man = "${pkgs.less}/bin/man -P 'less -Q'";
+			# bat = "bat --theme='Catppuccin Mocha' -pn";
 		};
 
 		shellInit = ''
@@ -26,7 +25,7 @@ set -xU MANPAGER 'less -R --use-color -Dd+r -Du+b'
 set -xU MANROFFOPT '-P -c'
 		'';
 
-		function = {
+		functions = {
 			private_mode = ''
 function private_mode
 	if test "$fish_private_mode"

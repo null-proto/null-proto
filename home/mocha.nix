@@ -9,6 +9,7 @@
     imv.enable = true;
     fzf.enable = true;
     kitty.enable = true;
+		fish.enable = true;
 
     btop = {
       enable = true;

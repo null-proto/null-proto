@@ -20,7 +20,7 @@
 
         modules = [
           ./config.nix
-          ./machine/config.nix
+          ./host/config.nix
           ./system/config.nix
           ./system/locale.nix
           ./system/user.nix

@@ -9,6 +9,7 @@
     mpv.enable = true;
     imv.enable = true;
     fzf.enable = true;
+    kitty.enable = true;
 
     btop = {
       enable = true;

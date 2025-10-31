@@ -3,6 +3,18 @@
 unbind-key C-b
 set-option -g prefix m-x
 bind-key M-x send-prefix
+
+bind -n M-a select-pane -L   # Alt+a
+bind -n M-d select-pane -R   # Alt+d
+bind -n M-w select-pane -U   # Alt+w
+bind -n M-s select-pane -D   # Alt+s
+
+setw -g mode-keys vi
+bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "wl-copy"
+bind -T copy-mode-vi v send -X begin-selection
+bind -T copy-mode-vi y send -X copy-selection
+bind -T copy-mode-vi Escape send -X cancel
+
 set -g allow-passthrough on
 set -ga update-environment TERM
 set -ga update-environment TERM_PROGRAM
@@ -69,19 +81,6 @@ run-shell -b 'tmux rename-window PRIME'
 # set-hook -g after-new-window 'run-shell "tmux rename-window $(shuf -n1 /usr/share/dict/british-english)"'
 
 set-option -g allow-rename on
-
-bind -n M-a select-pane -L   # Alt+a
-bind -n M-d select-pane -R   # Alt+d
-bind -n M-w select-pane -U   # Alt+w
-bind -n M-s select-pane -D   # Alt+s
-
-
-setw -g mode-keys vi
-bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "wl-copy"
-
-bind -T copy-mode-vi v send -X begin-selection
-bind -T copy-mode-vi y send -X copy-selection
-bind -T copy-mode-vi Escape send -X cancel
 
 # set -g @plugin 'tmux-plugins/tpm'
 # set -g @plugin 'tmux-plugins/tmux-sensible'

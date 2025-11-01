@@ -1,0 +1,3 @@
+[submodule "home/desktop/nvim"]
+	path = home/desktop/nvim
+	url = git@github.com:null-proto/nvim

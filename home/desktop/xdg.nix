@@ -1,14 +1,14 @@
-{ pkgs , ... }: {
+{ pkgs , inputs , ... }: {
 
   xdg = {
     portal.enable = true;
     portal.extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
+
+    configFile."rofi/themes/blackglass.rasi".source = ./rofi/blackglass.rasi;
+
+    configFile."nvim" = {
+      source = inputs.nvim-config;
+      recursive = true;
+    };
   };
-
-  xdg.configFile."rofi/themes/blackglass.rasi".source = ./rofi/blackglass.rasi;
-
-  xdg.configFile."nvim" = {
-		source = ./nvim;
-		recursive = true;
-	};
 }

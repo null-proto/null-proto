@@ -9,7 +9,9 @@
     imv.enable = true;
     fzf.enable = true;
     kitty.enable = true;
-		fish.enable = true;
+    fish.enable = true;
+    lazygit.enable = true;
+    bottom.enable = true;
 
     btop = {
       enable = true;

@@ -6,5 +6,9 @@
   };
 
   xdg.configFile."rofi/themes/blackglass.rasi".source = ./rofi/blackglass.rasi;
-  xdg.configFile."nvim".source = ./nvim;
+
+  xdg.configFile."nvim" = {
+		source = ./nvim;
+		recursive = true;
+	};
 }

@@ -13,7 +13,7 @@
       italic_bold_font = "family='maple mono nf'";
       modify_font = "cell_height 0.7px underline_position 4 underline_thickness 150%";
 
-      window_padding_width = 2;
+      window_padding_width = 8;
       background_blur = 1;
       underline_hyperlinks = "hover";
       detect_urls = "yes";

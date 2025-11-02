@@ -6,7 +6,7 @@
 
     configFile."rofi/themes/blackglass.rasi".source = ./rofi/blackglass.rasi;
 
-    configFile."nvim" = {
+    configFile.nvim = {
       source = inputs.nvim-config;
       recursive = true;
     };

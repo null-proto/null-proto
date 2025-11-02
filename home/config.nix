@@ -25,6 +25,7 @@
     ./programs/extra.nix
 
     ./services/dunst.nix
+		./services/pam.nix
 
     ./desktop/gtk.nix
     ./desktop/xdg.nix

@@ -135,7 +135,7 @@
       ];
 
       workspace = [
-        "special:scratchpad, on-created-empty:foot"
+        # "special:scratchpad, on-created-empty:kitty"
       ];
 
       env = [
@@ -164,7 +164,7 @@
         "$mainMod SHIFT, W,exec, $menu emoji"
         "$mainMod SHIFT, D,exec, $menu drun"
         "$mainMod SHIFT, E,exec, $ff"
-        "$mainMod SHIFT, Y,exec, $cliphist list | $menu_raw  | $cliphist decode | wl-copy"
+        "$mainMod SHIFT, Y,exec, \"$cliphist list | $menu_raw  | $cliphist decode | wl-copy\""
 
         "$mainMod SHIFT, Q, killactive,"
         "$mainMod SHIFT, M, exit,"

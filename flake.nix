@@ -27,8 +27,6 @@
           ./config.nix
           ./host/config.nix
           ./system/config.nix
-          ./system/locale.nix
-          ./system/user.nix
 
           catppuccin.nixosModules.catppuccin {
             catppuccin.enable = false;

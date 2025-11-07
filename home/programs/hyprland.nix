@@ -34,7 +34,7 @@
         gaps_in = 10;
         gaps_out = 40;
         border_size = 3;
-        "col.active_border" = "rgb(45475a)";
+        "col.active_border" = "rgb(313244)";
         "col.inactive_border" = "rgb(313244)";
         resize_on_border = true;
         allow_tearing = false;
@@ -130,7 +130,7 @@
         "pin,title:Picture-in-Picture"
         "float,title:Picture-in-Picture"
         "move 100%-w-10 5%,title:Picture-in-Picture"
-        "bordercolor rgba(44324480),xwayland:1"
+        # "bordercolor rgba(44324480),xwayland:1"
         # "bordercolor rgba(ffffff00),title:Picture-in-Picture"
       ];
 

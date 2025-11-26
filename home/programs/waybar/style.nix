@@ -132,6 +132,7 @@ window#waybar {
 #mode,
 #privacy,
 #tray {
+	border-radius: 6px;
 	margin: 0px 0px 0px 6px;
 	border-color: @border;
 	border-style: solid;

@@ -3,6 +3,10 @@
     alacritty
     alacritty-theme
 
+		gimp
+
+		scrcpy
+
     playerctl
     papers
     audacious
@@ -13,6 +17,10 @@
     gdb
     gef
     ffmpeg
+
+		file
+
+		helvum
 
     hyprpaper
     hyprpicker

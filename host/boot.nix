@@ -1,4 +1,4 @@
-{
+{ ... } : {
   boot = {
     loader = {
       systemd-boot.enable = true;
@@ -14,13 +14,12 @@
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
     blacklistedKernelModules = [ "iwlwifi" ];
-    kernelParams = [ ];
-    extraModprobeConfig = ''
-    # modset settings
-    
-    # iwlwifi.bt_coex_active=0
-    # iwlwifi.power_save=0
-
-    '';
+    # kernelParams = [ "acpi_osi=\"! Windows 2020\"" ];
+		#   extraModprobeConfig = ''
+		# # options iwlwifi disable_11ax=1
+		# # options iwlwifi power_save=0
+		# # options iwlmvm power_scheme=1
+		#   # iwlwifi.bt_coex_active=0
+		#   '';
   };
 }

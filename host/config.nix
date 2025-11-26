@@ -10,6 +10,7 @@
     (modulesPath + "/installer/scan/not-detected.nix")
     ./boot.nix
     ./fs.nix
+		./power.nix
   ];
 
   # nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

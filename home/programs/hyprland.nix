@@ -1,4 +1,24 @@
-{ config , pkgs, ...}:{
+{ config , pkgs, ...}:
+let
+  grim = "${pkgs.grim}/bin/grim";
+  slurp = "${pkgs.slurp}/bin/slurp";
+	firefox = "${pkgs.firefox}/bin/firefox";
+  cliphist="${pkgs.cliphist}/bin/cliphist";
+	brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
+  swaylock = "${pkgs.swaylock}/bin/swaylock";
+  terminal = "${pkgs.kitty}/bin/kitty";
+  wpctl = "${pkgs.wireplumber}/bin/wpctl";
+  playerctl = "${pkgs.playerctl}/bin/playerctl";
+  fileManager = "${pkgs.nautilus}/bin/nautilus -w";
+  rofiShow = "${pkgs.rofi}/bin/rofi -show";
+  rofiDmenu = "${pkgs.rofi}/bin/rofi -dmenu";
+
+	notify = "${pkgs.dunst}/bin/dunstify";
+	hyprctl = "${pkgs.hyprland}/bin/hyprctl";
+
+	mod = "SUPER";
+in
+{
   wayland.windowManager.hyprland = {
     enable = true;
     package = pkgs.hyprland;
@@ -10,24 +30,10 @@
         "eDP-1,1980x1080@144, auto ,1"
       ];
 
-      "$mainMod" = "SUPER";
-      "$terminal" = "${pkgs.kitty}/bin/kitty";
-      "$fileManager" = "${pkgs.nautilus}/bin/nautilus -w";
-      "$menu" = "rofi -show";
-      "$menu_raw" = "rofi -dmenu";
-      "$cliphist"="${pkgs.cliphist}/bin/cliphist";
-      "$ff" = "${pkgs.firefox}/bin/firefox";
-      "$swaylock" = "${pkgs.swaylock}/bin/swaylock";
-      "$girm" = "${pkgs.grim}/bin/grim";
-      "$slurp" = "${pkgs.slurp}/bin/slurp";
-      "$brightnessctl" = "${pkgs.brightnessctl}/bin/brightnessctl";
-      "$playerctl" = "${pkgs.playerctl}/bin/playerctl";
-      "$wpctl" = "${pkgs.wireplumber}/bin/wpctl";
-
       "exec-once" = [
         "${pkgs.waybar}/bin/waybar"
         "${pkgs.hyprpaper}/bin/hyprpaper"
-        "sleep 1 && hyprctl keyword animations:enabled true"
+        "sleep 1 && ${hyprctl} keyword animations:enabled true"
       ];
 
       general = {
@@ -62,7 +68,7 @@
         # first_launch_animation = false;
         bezier = [ "myBezier, 0.05, 0.5, 0.9, 1" ];
         # animation = [ "windows, 1, 4, default , popin 80% , fade 20%" "workspaces, 1, 2, default" ];
-        "animation" = [
+        animation = [
           "windows, 1, 4, default , slide bottom"
           "workspaces, 1, 2, default"
         ];
@@ -148,88 +154,88 @@
       ];
 
       bind = [
-        "$mainMod, RETURN, exec, $terminal"
-        "$mainMod, TAB, exec, $terminal"
-        "$mainMod, F, fullscreen,"
-        "$mainMod, E, exec, $fileManager"
-        "$mainMod, P, pseudo,"
-        "$mainMod, J, togglesplit,"
-        "$mainMod, W, exec, $menu calc"
-        "$mainMod, D, exec, $menu run"
-        "$mainMod, Q, exec, $menu window"
+        "${mod}, RETURN, exec, ${terminal}"
+        "${mod}, TAB, exec, ${terminal}"
+        "${mod}, F, fullscreen,"
+        "${mod}, E, exec, ${fileManager}"
+        "${mod}, P, pseudo,"
+        "${mod}, J, togglesplit,"
+        "${mod}, W, exec, ${rofiShow} calc"
+        "${mod}, D, exec, ${rofiShow} run"
+        "${mod}, Q, exec, ${rofiShow} window"
 
-        "$mainMod SHIFT, SPACE,togglefloating,"
-        "$mainMod SHIFT, P,pin,"
+        "${mod} SHIFT, SPACE,togglefloating,"
+        "${mod} SHIFT, P,pin,"
 
-        "$mainMod SHIFT, W,exec, $menu emoji"
-        "$mainMod SHIFT, D,exec, $menu drun"
-        "$mainMod SHIFT, E,exec, $ff"
-        "$mainMod SHIFT, Y,exec, \"$cliphist list | $menu_raw  | $cliphist decode | wl-copy\""
+        "${mod} SHIFT, W,exec, ${rofiShow} emoji"
+        "${mod} SHIFT, D,exec, ${rofiShow} drun"
+        "${mod} SHIFT, E,exec, ${firefox}"
+        "${mod} SHIFT, Y,exec, ${cliphist} list | ${rofiDmenu}  | ${cliphist} decode | wl-copy"
 
-        "$mainMod SHIFT, Q, killactive,"
-        "$mainMod SHIFT, M, exit,"
-        "$mainMod, Z, exec, $swaylock -c 1e1e2e --indicator-idle-visible -t --indicator-radius 200 --indicator-thickness 20 --ring-color 181825 --ring-clear-color 0070ff --separator-color 45475a --key-hl-color cdd6f4 --inside-color 11111b --inside-clear-color 94e2d5 --inside-caps-lock-color 45475a --inside-ver-color fab387 --inside-wrong-color f38ba8 -r --line-color 1e1e2e --line-clear-color 89dceb --line-caps-lock-color 313244 --line-ver-color f9e2af --line-wrong-color eba0ac --ring-color 181825 --ring-clear-color 89dceb --ring-caps-lock-color 313244 --ring-ver-color f9e2af --ring-wrong-color eba0ac --text-color 6c7086 --text-clear-color 313244 --text-caps-lock-color 181825 --text-ver-color f9e2af --text-wrong-color eba0ac"
-        "$mainMod, left , movefocus, l"
-        "$mainMod, right, movefocus, r"
-        "$mainMod, up, movefocus, u"
-        "$mainMod, down, movefocus, d"
+        "${mod} SHIFT, Q, killactive,"
+        "${mod} SHIFT, M, exit,"
+        "${mod}, Z, exec, ${swaylock} -c 1e1e2e --indicator-idle-visible -t --indicator-radius 200 --indicator-thickness 20 --ring-color 181825 --ring-clear-color 0070ff --separator-color 45475a --key-hl-color cdd6f4 --inside-color 11111b --inside-clear-color 94e2d5 --inside-caps-lock-color 45475a --inside-ver-color fab387 --inside-wrong-color f38ba8 -r --line-color 1e1e2e --line-clear-color 89dceb --line-caps-lock-color 313244 --line-ver-color f9e2af --line-wrong-color eba0ac --ring-color 181825 --ring-clear-color 89dceb --ring-caps-lock-color 313244 --ring-ver-color f9e2af --ring-wrong-color eba0ac --text-color 6c7086 --text-clear-color 313244 --text-caps-lock-color 181825 --text-ver-color f9e2af --text-wrong-color eba0ac"
+        "${mod}, left , movefocus, l"
+        "${mod}, right, movefocus, r"
+        "${mod}, up, movefocus, u"
+        "${mod}, down, movefocus, d"
 
-        "$mainMod, 1, workspace, 1"
-        "$mainMod, 2, workspace, 2"
-        "$mainMod, 3, workspace, 3"
-        "$mainMod, 4, workspace, 4"
-        "$mainMod, 5, workspace, 5"
-        "$mainMod, 6, workspace, 6"
-        "$mainMod, 7, workspace, 7"
-        "$mainMod, 8, workspace, 8"
-        "$mainMod, 9, workspace, 9"
-        "$mainMod, 0, workspace, 10"
+        "${mod}, 1, workspace, 1"
+        "${mod}, 2, workspace, 2"
+        "${mod}, 3, workspace, 3"
+        "${mod}, 4, workspace, 4"
+        "${mod}, 5, workspace, 5"
+        "${mod}, 6, workspace, 6"
+        "${mod}, 7, workspace, 7"
+        "${mod}, 8, workspace, 8"
+        "${mod}, 9, workspace, 9"
+        "${mod}, 0, workspace, 10"
 
-        "$mainMod SHIFT, 1, movetoworkspace, 1"
-        "$mainMod SHIFT, 2, movetoworkspace, 2"
-        "$mainMod SHIFT, 3, movetoworkspace, 3"
-        "$mainMod SHIFT, 4, movetoworkspace, 4"
-        "$mainMod SHIFT, 5, movetoworkspace, 5"
-        "$mainMod SHIFT, 6, movetoworkspace, 6"
-        "$mainMod SHIFT, 7, movetoworkspace, 7"
-        "$mainMod SHIFT, 8, movetoworkspace, 8"
-        "$mainMod SHIFT, 9, movetoworkspace, 9"
-        "$mainMod SHIFT, 0, movetoworkspace, 10"
+        "${mod} SHIFT, 1, movetoworkspace, 1"
+        "${mod} SHIFT, 2, movetoworkspace, 2"
+        "${mod} SHIFT, 3, movetoworkspace, 3"
+        "${mod} SHIFT, 4, movetoworkspace, 4"
+        "${mod} SHIFT, 5, movetoworkspace, 5"
+        "${mod} SHIFT, 6, movetoworkspace, 6"
+        "${mod} SHIFT, 7, movetoworkspace, 7"
+        "${mod} SHIFT, 8, movetoworkspace, 8"
+        "${mod} SHIFT, 9, movetoworkspace, 9"
+        "${mod} SHIFT, 0, movetoworkspace, 10"
 
-        "$mainMod, S, togglespecialworkspace, magic"
-        "$mainMod SHIFT, S, movetoworkspace, special:magic"
+        "${mod}, S, togglespecialworkspace, magic"
+        "${mod} SHIFT, S, movetoworkspace, special:magic"
 
-        "$mainMod, mouse_down, workspace, e+1"
-        "$mainMod, mouse_up, workspace, e-1"
+        "${mod}, mouse_down, workspace, e+1"
+        "${mod}, mouse_up, workspace, e-1"
 
 
         #", Print, exec, grim && notify-send -u low system 'Copying visual' --icon image"
         #"SHIFT , Print, exec, grim -g "$(slurp -d)" && notify-send -u low system 'Copying peremeter' --icon image"
 
-        ",Print, exec, GRIM_DEFAULT_DIR=~/Pictures/Screenshots/ $grim && dunstify -u low 'Copying visual' 'screenshot' --icon display"
-        "SHIFT , Print, exec,GRIM_DEFAULT_DIR=~/Pictures/Screenshots/ $grim -g '$($slurp -d)' && dunstify -u low 'Copying peremeter' 'screensot' --icon display"
+        ",Print, exec, GRIM_DEFAULT_DIR=~/Pictures/Screenshots/ ${grim} && ${notify} -u low 'Copying visual' 'screenshot' --icon display"
+        "SHIFT , Print, exec,GRIM_DEFAULT_DIR=~/Pictures/Screenshots/ ${grim} -g \"\$(${slurp} -d)\" && ${notify} -u low 'Copying peremeter' 'screensot' --icon display"
       ];
 
       bindl = [
-        ", XF86Launch3 , exec , $menu drun"
-        ", sleep-button , exec , $menu drun"
-        ", XF86AudioHome, exec, $ff"
-        ", XF86AudioPlay, exec, $playerctl play-pause"
-        ", XF86AudioPrev, exec, $playerctl previous"
-        ", XF86AudioNext, exec, $playerctl next"
-        ", XF86AudioMute, exec, $wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ", XF86Launch3 , exec , ${rofiShow} drun"
+        ", sleep-button , exec , ${rofiShow} drun"
+        ", XF86AudioHome, exec, ${firefox}"
+        ", XF86AudioPlay, exec, ${playerctl} play-pause"
+        ", XF86AudioPrev, exec, ${playerctl} previous"
+        ", XF86AudioNext, exec, ${playerctl} next"
+        ", XF86AudioMute, exec, ${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle"
       ];
 
       binde = [
-        ", XF86MonBrightnessUp , exec , $brightnessctl set 1+"
-        ", XF86MonBrightnessDown , exec , $brightnessctl set 1-"
-        ", XF86AudioLowerVolume, exec, $wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-        ", XF86AudioRaiseVolume, exec, $wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+        ", XF86MonBrightnessUp , exec , ${brightnessctl} set 1+"
+        ", XF86MonBrightnessDown , exec , ${brightnessctl} set 1-"
+        ", XF86AudioLowerVolume, exec, ${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        ", XF86AudioRaiseVolume, exec, ${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%+"
       ];
 
       bindm = [
-        "$mainMod, mouse:272, movewindow"
-        "$mainMod, mouse:273, resizewindow"
+        "${mod}, mouse:272, movewindow"
+        "${mod}, mouse:273, resizewindow"
         "ALT, mouse:272, movewindow"
       ];
     };
@@ -238,7 +244,7 @@
     extraConfig = ''
 env = EDITOR,nvim
 env = VISUAL,nvim
-    '';
+'';
     plugins = [];
     # settings = {};
 

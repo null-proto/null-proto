@@ -10,8 +10,8 @@ let
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
   playerctl = "${pkgs.playerctl}/bin/playerctl";
   fileManager = "${pkgs.nautilus}/bin/nautilus -w";
-  rofiShow = "${pkgs.rofi}/bin/rofi -show";
-  rofiDmenu = "${pkgs.rofi}/bin/rofi -dmenu";
+  rofiShow = "rofi -show";
+  rofiDmenu = "rofi -dmenu";
 
 	notify = "${pkgs.dunst}/bin/dunstify";
 	hyprctl = "${pkgs.hyprland}/bin/hyprctl";

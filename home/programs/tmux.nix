@@ -76,6 +76,9 @@ set -g pane-active-border-style 'fg=#f2cdcd,bg=terminal'
 #set -g status-right '#[fg=black]• #[fg=blue,bright]#(echo "$(pwd | string shorten -m25 --left)  ")#[default]'
 
 run-shell -b 'tmux rename-window PRIME'
+bind n run-shell "tmux new -s tmux_$(tmux list-sessions | wc -l)"
+
+
 # run-shell 'tmux rename-window $(shuf -n1 /usr/share/dict/british-english)'
 # set-hook -g server-start 'run-shell "tmux rename-window prime"'
 

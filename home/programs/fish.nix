@@ -10,7 +10,7 @@
       ip = "${pkgs.iproute2}/bin/ip -c";
       less = "${pkgs.less}/bin/less -Q --use-color";
       man = "${pkgs.less}/bin/man -P 'less -Q'";
-      # bat = "bat --theme='Catppuccin Mocha' -pn";
+      bat = "bat -pn";
     };
 
     shellInit = ''

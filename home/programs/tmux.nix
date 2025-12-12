@@ -36,13 +36,13 @@ set -g status-position bottom
 set -g status-justify left
 set -g status-style 'fg=#f38ba8 ,'
 
-set -g status-left " #{session_name} "
+set -g status-left " srv-#{session_name} "
 set -g status-left-style "fg=#f38ba8 bg=#181825 ,bold"
 # set -g status-left-length 10
 
-set -g status-right '  #{=25:pane_current_path} │ P󰻾 #{client_pid} │  #{pane_index}:#{window_panes} '
-set -g status-right-style 'fg=#181825 bg=#fab387'
-set -g status-right-length 50
+set -g status-right '  #{=30:pane_current_path} │ P󰻾 #{client_pid} │  #{pane_index}:#{window_panes} '
+set -g status-right-style 'fg=#181825 bg=#fab387, bold'
+set -g status-right-length 55
 
 
 setw -g window-status-style 'fg=#a6adc8 bg=#313244, bold'

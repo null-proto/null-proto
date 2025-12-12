@@ -125,13 +125,13 @@
         disabled = false;
       };
 
-			jobs = {
-				symbol = " ";
-				symbol_threshold = 1;
-				number_threshold = 1;
-				style = "red dimmed bold";
-				format = "[$symbol$number]($style) ";
-			};
+      jobs = {
+        symbol = " ";
+        symbol_threshold = 1;
+        number_threshold = 1;
+        style = "red dimmed bold";
+        format = "[$symbol$number]($style) ";
+      };
     };
   };
 }

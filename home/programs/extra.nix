@@ -1,45 +1,95 @@
 { pkgs , ... } :{
   home.packages = with pkgs; [
-    alacritty
-    alacritty-theme
 
-		gimp
+# core system
+    coreutils-full
+    git
+    git-lfs
+    dconf
 
-		scrcpy
-
-    playerctl
-    papers
-    audacious
-    nautilus
-
-    jmtpfs
-    lf
+# binary
+    binutils
+    file
     gdb
     gef
-    ffmpeg
 
-		file
+# extra
+    gh
 
-		helvum
+# hardware controller utility
+    acpi
+    brightnessctl
+    usbutils
+    libinput
 
-    hyprpaper
-    hyprpicker
+# virtualization utility
+    docker
+    qemu
 
+# network / encryption utility
+    openssh
+    openssl
+    wget
+    curl
+    nmap
+    nettools
+    iputils
+    tcpdump
+    arping
+    netcat
+
+# text / compression / archive utility
+    ripgrep
+    unzip 
+    gzip 
+    xz
+    lz4
+
+# file system / file management  utility
+    btrfs-progs
+    btrfs-heatmap 
+    nautilus
+    dfrs
+    gdu
+    tree
+    lsof
+    lf
+
+# system viewer
+    htop
+    atop
     neofetch
     fastfetch
     cyme
-    slurp
-    grim
-    qemu
-    gh
-    nwg-look
 
+# wayland / desktop utility
     xdg-desktop-portal
     xdg-desktop-portal-wlr
-
+    hyprpaper
+    hyprpicker
     wl-clipboard
     cliphist
+    slurp
+    grim
+    nwg-look
 
+# audio utility
+    helvum
+    audacious
+    playerctl
+
+# video / photo / document
+    ffmpeg
+    gimp
+    papers
+
+# multi spec
+    scrcpy
+    jmtpfs
+
+
+# language server
+    nixd
     typos-lsp
     yaml-language-server
     vscode-langservers-extracted
@@ -48,6 +98,7 @@
     bash-language-server
     tailwindcss-language-server
 
+# ide
     android-studio
   ];
 }

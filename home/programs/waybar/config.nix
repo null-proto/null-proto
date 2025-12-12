@@ -122,7 +122,7 @@
 
         backlight = {
           device = "nvidia_0";
-          format = "{percent}:{icon}";
+          format = "{icon} {percent}";
           format-icons = [ "󱩎" "󱩐" "󱩑" "󱩒" "󱩓" "󱩔" "󱩕" "󱩖" "󰛨" ];
           on-scroll-up = "brightnessctl set 1+";
           on-scroll-down = "brightnessctl set 1-";
@@ -144,8 +144,8 @@
 
         wireplumber = {
           # "scroll-step": 1; // %, can be a float
-          format = "{volume}:{icon}";
-          format-muted = "--:󰸈";
+          format = "{icon} {volume}";
+          format-muted = "󰸈 --";
           format-icons = { default = [ "" "󱄠" ]; };
           on-click = "helvum";
         };
@@ -175,8 +175,8 @@
         };
 
         temperature = {
-          thermal-zone = 2;
-          # "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input";
+          # thermal-zone = 2;
+          hwmon-path=  "/sys/devices/platform/coretemp.0/hwmon/hwmon7/temp10_input";
           critical-threshold = 80;
           # "format-critical": "{temperatureC}°C {icon}";
           format = "{temperatureC}󰔄";
@@ -220,7 +220,7 @@
         };
 
         privacy = {
-          icon-spacing = 2;
+          icon-spacing = 3;
           icon-size = 18;
           transition-duration = 250;
           modules = [

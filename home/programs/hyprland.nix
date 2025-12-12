@@ -2,9 +2,9 @@
 let
   grim = "${pkgs.grim}/bin/grim";
   slurp = "${pkgs.slurp}/bin/slurp";
-	firefox = "${pkgs.firefox}/bin/firefox";
+  firefox = "${pkgs.firefox}/bin/firefox";
   cliphist="${pkgs.cliphist}/bin/cliphist";
-	brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
+  brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
   swaylock = "${pkgs.swaylock}/bin/swaylock";
   terminal = "${pkgs.kitty}/bin/kitty";
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
@@ -13,10 +13,10 @@ let
   rofiShow = "rofi -show";
   rofiDmenu = "rofi -dmenu";
 
-	notify = "${pkgs.dunst}/bin/dunstify";
-	hyprctl = "${pkgs.hyprland}/bin/hyprctl";
+  notify = "${pkgs.dunst}/bin/dunstify";
+  hyprctl = "${pkgs.hyprland}/bin/hyprctl";
 
-	mod = "SUPER";
+  mod = "SUPER";
 in
 {
   wayland.windowManager.hyprland = {

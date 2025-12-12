@@ -1,7 +1,3 @@
 { pkgs , ... }: {
-  environment.systemPackages = with pkgs; [
-    #-- un-free & sus
-    _7zz
-    unrar
-  ];
+  environment.systemPackages = with pkgs; [ ];
 }

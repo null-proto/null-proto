@@ -1,6 +1,10 @@
-{ ... }:
+{ pkgs , ... }:
 
 {
+	user = {
+		shell = "${pkgs.fish}/bin/fish";
+	};
+
    # ./programs/extra.nix
   # Backup etc files instead of failing to activate generation if a file already exists in /etc
   environment.etcBackupExtension = ".bak";

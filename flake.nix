@@ -30,7 +30,7 @@
   {
     nixosConfigurations = {
       nix = nixpkgs.lib.nixosSystem {
-        system = builtins.currentSystem;
+        system = "x86_64-linux";
         specialArgs = inputs;
 
         modules = [
@@ -65,17 +65,29 @@
     };
 
     nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
-      pkgs = import nixpkgs { system = builtins.currentSystem; };
+      pkgs = import nixpkgs { system = "aarch64-linux"; };
 
-			home.extraSpecialArgs = { inherit inputs; };
+			extraSpecialArgs = {
+				inherit inputs;
+			};
+
+			config = {
+				user.userName = nix-on-droid.lib.mkForce profile.username;
+			};
 
       modules = [
 				./home/config.nix
+				./home/lite.nix
 
-				catppuccin.homeModules.catppuccin {
-					imports = [ ./home/mocha.nix ];
+				nix-on-droid.nodModules.home-manager {
+					modules = [
+						catppuccin.homeModules.catppuccin {
+							imports = [ ./home/mocha.nix ];
+						}
+					];
 				}
 			];
+
     };
   };
 }

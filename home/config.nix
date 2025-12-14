@@ -21,6 +21,8 @@
     ./programs/starship.nix
     ./programs/swaylock.nix
     ./programs/waybar/config.nix
+		./programs/neovim.nix
+		./programs/ssh.nix
 
     ./programs/extra.nix
 

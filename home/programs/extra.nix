@@ -27,7 +27,6 @@
     qemu
 
 # network / encryption utility
-    openssh
     openssl
     wget
     curl

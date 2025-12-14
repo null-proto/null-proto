@@ -1,10 +1,6 @@
-{ pkgs , inputs , ...} : {
+{ pkgs , inputs , ... } : {
   # Simply install just the packages
   environment.packages = with pkgs; [
-    # User-facing stuff that you really really want to have
-    neovim # or some other editor, e.g. nano or neovim
-
-    # Some common stuff that people expect to have
     procps
     killall
     diffutils
@@ -24,16 +20,21 @@
     unzip
   ];
 
+	home.shell.enableFishIntegration = true;
+
+
   imports = [
-    ./home/programs/bat.nix
-    ./home/programs/fzf.nix
-    ./home/programs/lsd.nix
-    ./home/programs/fish.nix
-    ./home/programs/tmux.nix
-    ./home/programs/direnv.nix
-    ./home/programs/zoxide.nix
-    ./home/programs/ripgrep.nix
-    ./home/programs/starship.nix
+    ./programs/bat.nix
+    ./programs/fzf.nix
+    ./programs/lsd.nix
+    ./programs/fish.nix
+    ./programs/tmux.nix
+    ./programs/direnv.nix
+    ./programs/zoxide.nix
+    ./programs/ripgrep.nix
+    ./programs/starship.nix
+    ./programs/starship.nix
+		./programs/ssh.nix
   ];
 
   xdg = {

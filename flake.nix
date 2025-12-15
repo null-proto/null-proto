@@ -71,9 +71,6 @@
 				inherit inputs;
 			};
 
-			config = {
-				user.userName = nix-on-droid.lib.mkForce profile.username;
-			};
 
       modules = [
 				./home/config.nix

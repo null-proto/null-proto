@@ -1,8 +1,11 @@
-{ pkgs , ... }:
-
+{ pkgs , lib ,... }:
+let
+inherit (import ../users.nix) profile;
+in
 {
 	user = {
 		shell = "${pkgs.fish}/bin/fish";
+		userName = lib.mkForce profile.username;
 	};
 
    # ./programs/extra.nix

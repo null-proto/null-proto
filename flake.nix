@@ -73,19 +73,7 @@
 
 
       modules = [
-			  ./system/nod.nix
-				./home/lite.nix
-				# catppuccin.homeModules.catppuccin {
-				# 	imports = [ ./home/colors/nod.nix ];
-				# }
-				#
-			# 	nix-on-droid.home-manager {
-			# 		modules = [
-			# 			catppuccin.homeModules.catppuccin {
-			# 				imports = [ ./home/mocha.nix ];
-			# 			}
-			# 		];
-			# 	}
+			  ./nod.nix
 			];
 
     };

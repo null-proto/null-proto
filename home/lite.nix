@@ -21,7 +21,7 @@
   ];
 
 	home.shell.enableFishIntegration = true;
-
+	home.stateVersion = "24.05";
 
   imports = [
     ./programs/bat.nix

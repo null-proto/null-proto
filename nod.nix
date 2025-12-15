@@ -20,6 +20,13 @@ in
     experimental-features = nix-command flakes
   '';
 
+	home-manager = {
+		backupFileExtension = "hm-bak";
+    useGlobalPkgs = true;
+
+		config = import ./home/lite.nix;
+	};
+
   # Set your time zone
   time.timeZone = "Asia/kolkat";
 }

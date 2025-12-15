@@ -76,7 +76,7 @@
 				./home/config.nix
 				./home/lite.nix
 
-				nix-on-droid.nodModules.home-manager {
+				nix-on-droid.rawModule.home-manager {
 					modules = [
 						catppuccin.homeModules.catppuccin {
 							imports = [ ./home/mocha.nix ];

@@ -75,14 +75,17 @@
       modules = [
 				./home/config.nix
 				./home/lite.nix
-
-				nix-on-droid.rawModule.home-manager {
-					modules = [
-						catppuccin.homeModules.catppuccin {
-							imports = [ ./home/mocha.nix ];
-						}
-					];
+				catppuccin.homeModules.catppuccin {
+					imports = [ ./home/mocha.nix ];
 				}
+
+			# 	nix-on-droid.home-manager {
+			# 		modules = [
+			# 			catppuccin.homeModules.catppuccin {
+			# 				imports = [ ./home/mocha.nix ];
+			# 			}
+			# 		];
+			# 	}
 			];
 
     };

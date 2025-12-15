@@ -55,7 +55,7 @@
                 ./home/config.nix
 
                 catppuccin.homeModules.catppuccin {
-                  imports = [ ./home/mocha.nix ];
+                  imports = [ ./home/colors/mocha.nix ];
                 }
               ];
             };
@@ -76,7 +76,7 @@
 			  ./system/nod.nix
 				./home/lite.nix
 				catppuccin.homeModules.catppuccin {
-					imports = [ ./home/mocha.nix ];
+					imports = [ ./home/colors/nod.nix ];
 				}
 
 			# 	nix-on-droid.home-manager {

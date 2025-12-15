@@ -1,6 +1,6 @@
 { pkgs , inputs , ... } : {
   # Simply install just the packages
-  environment.packages = with pkgs; [
+  home.packages = with pkgs; [
     procps
     killall
     diffutils

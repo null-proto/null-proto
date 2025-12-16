@@ -23,7 +23,7 @@
     };
   };
 
-  outputs = { nixpkgs , catppuccin , home-manager , nix-on-droid, ...}@inputs:
+  outputs = { rolling, nixpkgs , catppuccin , home-manager , nix-on-droid, ...}@inputs:
   let 
     inherit (import ./users.nix) profile;
   in

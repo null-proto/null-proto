@@ -9,6 +9,8 @@
     ./services.nix
     ./systemd.nix
 
+		./virtualization.nix
+
     ./programs/utils.nix
     ./programs/extra.nix
   ];

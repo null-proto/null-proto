@@ -11,6 +11,8 @@
 
 		./virtualization.nix
 
+		./manuals.nix
+
     ./programs/utils.nix
     ./programs/extra.nix
   ];

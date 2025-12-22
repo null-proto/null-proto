@@ -24,7 +24,6 @@
 
 # virtualization utility
     docker
-    qemu
 
 # network / encryption utility
     openssl

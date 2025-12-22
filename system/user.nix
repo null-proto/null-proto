@@ -3,13 +3,16 @@ let
   inherit (import ../users.nix) profile;
 in
 {
+
+  # users.groups.libvirtd.members = [ "${profile.username}" ];
+
   users.users.${profile.username} = {
     shell = pkgs.fish;
     isNormalUser = true;
     home = profile.homeDir;
     description = profile.fullname;
     group = "wheel";
-    extraGroups = [ "networkmanager" "video" "audio" "kvm" "disk" "adbusers" "docker" ];
+    extraGroups = [ "networkmanager" "video" "audio" "kvm" "disk" "adbusers" "docker" "libvirtd" ];
     packages = [];
   };
 }

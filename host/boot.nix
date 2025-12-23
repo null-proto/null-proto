@@ -1,5 +1,29 @@
-{ ... } : {
+{ lib , pkgs, config ,... } : let
+
+  # zfsCompatibleKernelPackages = lib.filterAttrs (
+  #   name: kernelPackages:
+  #   (builtins.match "linux_[0-9]+_[0-9]+" name) != null
+  #   && (builtins.tryEval kernelPackages).success
+  #   && ( !(kernelPackages.${pkgs.zfs.kernelModuleAttribute}.meta.broken or false))
+  # ) pkgs.linuxKernel.packages;
+  #
+  # latestKernelPackage = lib.last (
+  #   lib.sort (a: b: (lib.versionOlder a.kernel.version b.kernel.version)) (
+  #     builtins.attrValues zfsCompatibleKernelPackages
+  #   )
+  # );
+
+in {
   boot = {
+		# supportedFilesystems = [ "zfs" ];
+		# zfs.forceImportRoot = false
+		
+    # see this: https://github.com/nix-community/nixos-images/blob/main/nix/latest-zfs-kernel.nix
+		# kernelPackages = lib.mkIf (lib.meta.availableOn pkgs.hostPlatform pkgs.zfs) latestKernelPackage;
+		kernelPackages = pkgs.linuxPackages_latest;
+
+		# zfs.enabled = true;
+
     loader = {
       systemd-boot.enable = true;
       systemd-boot.configurationLimit = 5;
@@ -13,8 +37,8 @@
       kernelModules = [ "i915" "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
     };
 
-    kernelModules = [ "kvm-intel" ];
-    extraModulePackages = [ ];
+    kernelModules = [ "kvm-intel" "zfs" ];
+    # extraModulePackages = with config.boot.kernelPackages; [ zfs ];
     blacklistedKernelModules = [ "iwlwifi" ];
     # kernelParams = [ "acpi_osi=\"! Windows 2020\"" ];
     #   extraModprobeConfig = ''
@@ -23,5 +47,7 @@
     # # options iwlmvm power_scheme=1
     #   # iwlwifi.bt_coex_active=0
     #   '';
+
+
   };
 }

@@ -199,17 +199,17 @@
     "nvim-config": {
       "flake": false,
       "locked": {
-        "lastModified": 1764946585,
-        "narHash": "sha256-t6N/h8lvEX3whdXMEbmNz17yZp78wesMtqRI05Y3jqk=",
-        "owner": "null-proto",
-        "repo": "nvim",
-        "rev": "a9306da1daf4bb84355aa6661acd0b4d4a47d484",
-        "type": "github"
+        "lastModified": 1766492887,
+        "narHash": "sha256-fNWc4fpVU7toFKgMe6b/bRAtDvAyz9j2DtMqyoyvbyU=",
+        "ref": "refs/heads/master",
+        "rev": "88c5880223f73d2faa49ca4a5d0f9017a0edf999",
+        "revCount": 3,
+        "type": "git",
+        "url": "https://github.com/null-proto/nvim"
       },
       "original": {
-        "owner": "null-proto",
-        "repo": "nvim",
-        "type": "github"
+        "type": "git",
+        "url": "https://github.com/null-proto/nvim"
       }
     },
     "rolling": {

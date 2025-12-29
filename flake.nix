@@ -12,7 +12,7 @@
 		};
 
     nvim-config = {
-      url = "git+https://github.com/null-proto/nvim?refs/master";
+      url = "git+https://github.com/null-proto/nvim";
       flake = false;
     };
 

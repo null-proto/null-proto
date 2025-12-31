@@ -29,7 +29,7 @@
     packages = with pkgs; [
       inter
       noto-fonts
-      noto-fonts-emoji
+      noto-fonts-color-emoji
       nerd-fonts.fira-code
       nerd-fonts.jetbrains-mono
       nerd-fonts.comic-shanns-mono

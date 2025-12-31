@@ -3,13 +3,13 @@
 
   inputs = {
     rolling.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
-    catppuccin.url = "github:catppuccin/nix/release-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    catppuccin.url = "github:catppuccin/nix/release-25.11";
 
     home-manager = {
-			url = "github:nix-community/home-manager/release-25.05";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+      url = "github:nix-community/home-manager/release-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nvim-config = {
       url = "git+https://github.com/null-proto/nvim";
@@ -67,14 +67,14 @@
     nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
       pkgs = import nixpkgs { system = "aarch64-linux"; };
 
-			extraSpecialArgs = {
-				inherit inputs;
-			};
+      extraSpecialArgs = {
+        inherit inputs;
+      };
 
 
       modules = [
-			  ./nod.nix
-			];
+        ./nod.nix
+      ];
 
     };
   };

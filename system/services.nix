@@ -7,7 +7,7 @@
     timesyncd.enable = true;
     # nscd.package = pkgs.glibc;
     
-		qemuGuest.enable = true;
+    qemuGuest.enable = true;
     spice-vdagentd.enable = true;
 
     greetd = {

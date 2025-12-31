@@ -15,14 +15,14 @@
 
 in {
   boot = {
-		# supportedFilesystems = [ "zfs" ];
-		# zfs.forceImportRoot = false
-		
+    # supportedFilesystems = [ "zfs" ];
+    # zfs.forceImportRoot = false
+    
     # see this: https://github.com/nix-community/nixos-images/blob/main/nix/latest-zfs-kernel.nix
-		# kernelPackages = lib.mkIf (lib.meta.availableOn pkgs.hostPlatform pkgs.zfs) latestKernelPackage;
-		kernelPackages = pkgs.linuxPackages_latest;
+    # kernelPackages = lib.mkIf (lib.meta.availableOn pkgs.hostPlatform pkgs.zfs) latestKernelPackage;
+    kernelPackages = pkgs.linuxPackages_latest;
 
-		# zfs.enabled = true;
+    # zfs.enabled = true;
 
     loader = {
       systemd-boot.enable = true;

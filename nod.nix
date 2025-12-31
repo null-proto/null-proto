@@ -3,10 +3,10 @@ let
 inherit (import ../users.nix) profile;
 in
 {
-	user = {
-		shell = "${pkgs.fish}/bin/fish";
-		userName = lib.mkForce profile.username;
-	};
+  user = {
+    shell = "${pkgs.fish}/bin/fish";
+    userName = lib.mkForce profile.username;
+  };
 
    # ./programs/extra.nix
   # Backup etc files instead of failing to activate generation if a file already exists in /etc
@@ -20,12 +20,12 @@ in
     experimental-features = nix-command flakes
   '';
 
-	home-manager = {
-		backupFileExtension = "hm-bak";
+  home-manager = {
+    backupFileExtension = "hm-bak";
     useGlobalPkgs = true;
 
-		config = import ./home/lite.nix;
-	};
+    config = import ./home/lite.nix;
+  };
 
   # Set your time zone
   time.timeZone = "Asia/kolkat";

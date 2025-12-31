@@ -9,9 +9,9 @@
     ./services.nix
     ./systemd.nix
 
-		./virtualization.nix
+    ./virtualization.nix
 
-		./manuals.nix
+    ./manuals.nix
 
     ./programs/utils.nix
     ./programs/extra.nix

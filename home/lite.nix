@@ -20,8 +20,8 @@
     unzip
   ];
 
-	home.shell.enableFishIntegration = true;
-	home.stateVersion = "24.05";
+  home.shell.enableFishIntegration = true;
+  home.stateVersion = "24.05";
 
   imports = [
     ./programs/bat.nix
@@ -34,7 +34,7 @@
     ./programs/ripgrep.nix
     ./programs/starship.nix
     ./programs/starship.nix
-		./programs/ssh.nix
+    ./programs/ssh.nix
   ];
 
   xdg = {

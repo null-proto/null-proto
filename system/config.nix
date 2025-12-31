@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+		./environment.nix
     ./security.nix
     ./locale.nix
     ./user.nix

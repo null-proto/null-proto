@@ -48,6 +48,10 @@ in {
     #   # iwlwifi.bt_coex_active=0
     #   '';
 
+		kernel.sysctl = {
+			"vm.swappiness" = 0;
+			"net.ipv4.tcp_congestion_control" = "bbr";
+		};
 
   };
 }

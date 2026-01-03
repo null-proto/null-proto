@@ -13,8 +13,8 @@
     greetd = {
       enable = true;
       settings = {
-        default_session = let tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet"; in {
-          command = "${tuigreet} --time --remember --remember-session --sessions ${pkgs.hyprland}/share/wayland-session";
+        default_session = {
+          command = "${pkgs.tuigreet}/bin/tuigreet";
           session = "${pkgs.hyprland}/share/wayland-session";
           user = "greeter";
         };

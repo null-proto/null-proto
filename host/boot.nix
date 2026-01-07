@@ -49,7 +49,7 @@ in {
     #   '';
 
 		kernel.sysctl = {
-			"vm.swappiness" = 0;
+			"vm.swappiness" = 90;
 			"net.ipv4.tcp_congestion_control" = "bbr";
 		};
 

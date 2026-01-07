@@ -97,6 +97,6 @@
     tailwindcss-language-server
 
 # ide
-    android-studio
+    # android-studio
   ];
 }

@@ -16,7 +16,7 @@
     systemPackages = with pkgs; [
 			zfs
 			zfstools
-			qemu
+			# qemu
 			wl-clipboard
 			man-pages
 			man-db

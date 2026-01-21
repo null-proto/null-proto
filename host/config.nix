@@ -20,6 +20,9 @@
 
   # uncomment this if micro code error on old intel device
   # hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.graphics.enable = true;
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = false;
 
   hardware.nvidia = {
     prime = {
@@ -37,10 +40,19 @@
     };
 
     nvidiaSettings = false; # gui app
-    open = false;
+    open = true;
     package = config.boot.kernelPackages.nvidiaPackages.latest;
   };
-  hardware.graphics.enable = true;
-  hardware.bluetooth.enable = true; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot = false;
+
+	# # Use CUDA Binary Cache
+	#  nix.settings = {
+	#    substituters = [
+	#      "https://nix-community.cachix.org"
+	#    ];
+	#    trusted-public-keys = [
+	#      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+	#    ];
+	#  };
+	#
+	# nixpkgs.config.cudaSupport = true;
 }

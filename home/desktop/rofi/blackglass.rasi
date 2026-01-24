@@ -38,7 +38,7 @@ element-text, element-icon , mode-switcher {
 window {
   height: 500px;
 	width: 900px;
-  border: 2px;
+  border: 3px;
 	padding: 0px;
 	border-radius: 12px;
   border-color: @border;

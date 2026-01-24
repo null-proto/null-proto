@@ -5,10 +5,9 @@
       defaultEditor = true;
     };
     fish.enable = true;
-    adb.enable = true;
     ssh.startAgent = true;
 
-    virt-manager.enable = true;
+    # virt-manager.enable = true;
 
 
   #   hyprland = {

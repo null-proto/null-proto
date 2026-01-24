@@ -42,6 +42,7 @@
     gzip 
     xz
     lz4
+		jq
 
 # file system / file management  utility
     btrfs-progs
@@ -97,6 +98,7 @@
     tailwindcss-language-server
 
 # ide
+    android-tools
     # android-studio
   ];
 }

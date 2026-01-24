@@ -13,6 +13,10 @@ in
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
     auto-optimise-store = true;
+
+		# cuda binary cache
+		# substituters = [ "https://cache.nixos-cuda.org" ];
+		# trusted-public-keys = [ "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M=" ];
   };
 
   
@@ -23,8 +27,13 @@ in
 
 
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+
+  nixpkgs.config = {
+		# cudaSupport = true;
+
+		# Allow unfree packages
+		allowUnfree = true;
+	};
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

@@ -130,12 +130,12 @@ in
         "ignore_alpha 1,match:title rofi"
       ];
 
-      windowrulev2 = [
+      windowrule = [
         "noblur, match:title ^(.*)"
         "rounding 0,match:class ^(.*\.exe)"
         "pin,match:title Picture-in-Picture"
         "float,match:title Picture-in-Picture"
-        "move 100%-w-10 5%,match:title Picture-in-Picture"
+        "move 100%-w-10 5%, match:title Picture-in-Picture"
         # "bordercolor rgba(44324480),xwayland:1"
         # "bordercolor rgba(ffffff00),title:Picture-in-Picture"
       ];

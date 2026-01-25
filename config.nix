@@ -2,8 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-# { pkgs, ... }:
-{...}:
+{ pkgs, ... }:
 let
   # home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz";
 
@@ -29,7 +28,10 @@ in
 
 
   nixpkgs.config = {
+		#   allowUnfreePredicate = pkgs._cuda.lib.allowUnfreeCudaPredicate;
 		# cudaSupport = true;
+		# cudaForwardCompat = true;
+
 
 		# Allow unfree packages
 		allowUnfree = true;

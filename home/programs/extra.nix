@@ -60,6 +60,7 @@
     neofetch
     fastfetch
     cyme
+		nix-tree
 
 # wayland / desktop utility
     xdg-desktop-portal

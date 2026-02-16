@@ -1,4 +1,4 @@
-{ config , pkgs, ...}:
+{ config , pkgs, inputs,  ...}:
 let
   grim = "${pkgs.grim}/bin/grim";
   slurp = "${pkgs.slurp}/bin/slurp";
@@ -12,6 +12,8 @@ let
   fileManager = "${pkgs.nautilus}/bin/nautilus -w";
   rofiShow = "rofi -show";
   rofiDmenu = "rofi -dmenu";
+  swww = inputs.swww.packages.${pkgs.system}.swww;
+  swww-daemon = "${swww}/bin/swww-daemon";
 
   notify = "${pkgs.dunst}/bin/dunstify";
   hyprctl = "${pkgs.hyprland}/bin/hyprctl";
@@ -30,9 +32,10 @@ in
         "eDP-1,1980x1080@144, auto ,1"
       ];
 
-      "exec-once" = [
+      exec-once = [
         "${pkgs.waybar}/bin/waybar"
-        "${pkgs.hyprpaper}/bin/hyprpaper"
+        # "${pkgs.hyprpaper}/bin/hyprpaper"
+				swww-daemon
         "sleep 1 && ${hyprctl} keyword animations:enabled true"
       ];
 
@@ -74,12 +77,12 @@ in
         ];
       };
 
-      "dwindle" = {
-        "pseudotile" = true;
-        "preserve_split" = true;
+      dwindle = {
+        pseudotile = true;
+        preserve_split = true;
       };
 
-      "master" = { "new_status" = "master"; };
+      master = { "new_status" = "master"; };
 
       "group:groupbar" = { "enabled" = false; };
 

@@ -5,10 +5,16 @@
       options = [ "subvol=#core" ];
     };
 
+  # fileSystems."/tmp" =
+  #   { device = "/dev/disk/by-label/NIX";
+  #     fsType = "btrfs";
+  #     options = [ "subvol=#void" "noatime" ];
+  #   };
+
   fileSystems."/tmp" =
-    { device = "/dev/disk/by-label/NIX";
-      fsType = "btrfs";
-      options = [ "subvol=#void" "noatime" ];
+    { device = "tmpfs";
+      fsType = "tmpfs";
+      options = [ "size=4G" "mode=1777" ];
     };
 
   fileSystems."/boot" =

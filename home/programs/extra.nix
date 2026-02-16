@@ -1,8 +1,9 @@
-{ pkgs , ... } :{
+{ pkgs , inputs,  ... } :{
   home.packages = with pkgs; [
 
 # core system
     coreutils-full
+		findutils
     git
     git-lfs
     dconf
@@ -12,9 +13,6 @@
     file
     gdb
     gef
-
-# extra
-    gh
 
 # hardware controller utility
     acpi
@@ -101,5 +99,20 @@
 # ide
     android-tools
     # android-studio
+
+# hex
+		hexdump
+		hexyl
+		hex
+		hexedit
+		hextazy
+
+
+# extra
+    gh
+		libreoffice-fresh
+		obs-studio
+		blender
+    inputs.swww.packages.${pkgs.system}.swww
   ];
 }

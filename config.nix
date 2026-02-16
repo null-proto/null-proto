@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 let
   # home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz";
 
@@ -32,6 +32,9 @@ in
 		# cudaSupport = true;
 		# cudaForwardCompat = true;
 
+    allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "joypixels" ];
+
+    joypixels.acceptLicense = true;
 
 		# Allow unfree packages
 		allowUnfree = true;

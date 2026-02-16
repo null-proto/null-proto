@@ -176,7 +176,7 @@
 
         temperature = {
           # thermal-zone = 2;
-          hwmon-path=  "/sys/devices/platform/coretemp.0/hwmon/hwmon7/temp10_input";
+          hwmon-path=  "/sys/devices/virtual/thermal/thermal_zone2/temp";
           critical-threshold = 80;
           # "format-critical": "{temperatureC}°C {icon}";
           format = "{temperatureC}󰔄";

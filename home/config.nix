@@ -23,6 +23,7 @@
     ./programs/waybar/config.nix
     ./programs/neovim.nix
     ./programs/ssh.nix
+		./programs/office.nix
 
     ./programs/extra.nix
 

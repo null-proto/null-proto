@@ -27,16 +27,36 @@
     fontDir.enable = true;
     fontconfig.useEmbeddedBitmaps = true;
     packages = with pkgs; [
-      inter
       noto-fonts
-      noto-fonts-color-emoji
+      # noto-fonts-color-emoji
+			openmoji-color
+			whatsapp-emoji-font
+			joypixels
+
+      inter
+			atkinson-hyperlegible-next
+			atkinson-hyperlegible-mono
+
       nerd-fonts.fira-code
       nerd-fonts.jetbrains-mono
       nerd-fonts.comic-shanns-mono
       nerd-fonts.victor-mono
+			nerd-fonts.hurmit
+			nerd-fonts.terminess-ttf
+			nerd-fonts.dejavu-sans-mono
       maple-mono.NF 
       terminus_font
+
+			google-fonts
     ];
-  };
+
+		# fontconfig.defaultFonts = {
+		# 	emoji = [ "Noto Color Emoji" ];
+		# 	sansSerif = [ "Noto Sans" "Noto Color Emoji" ];
+		# 	serif = [ "Noto Serif" "Noto Color Emoji" ];
+		# 	monospace = [ "Noto Sans Mono" "Noto Color Emoji" ];
+		# };
+		fontconfig.defaultFonts.emoji = [ "Joypixels" "Whatsapp Emoji Font" ];
+		};
 
 }

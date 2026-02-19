@@ -12,6 +12,7 @@
 
   systemd.tmpfiles.rules = [ "L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware" ];
 
+
   # systemd.user.services.hyprland = {
   #   description = "Hyprland Wayland session";
   #   after = [ "graphical.target" ];

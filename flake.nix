@@ -23,11 +23,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-  };
 
+		wallpaper = {
+			url = "tarball+https://drive.usercontent.google.com/download?id=1WeWnU1OT6wJRA03q6LD0RJCrdjR_mrwm&export=download";
+			flake = false;
+			# type = "tar";
+			# sha256 = "sha25-9854ccd135b26840d16df63a928a5170dc5c68e7524e71a0ed2fc47b64162abf";
+		};
+  };
   outputs = { nixpkgs , catppuccin , home-manager , nix-on-droid, ...}@inputs:
-  let 
+  let
     inherit (import ./users.nix) profile;
+
   in
   {
     nixosConfigurations = {

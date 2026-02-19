@@ -265,7 +265,8 @@
         "nix-on-droid": "nix-on-droid",
         "nixpkgs": "nixpkgs_3",
         "nvim-config": "nvim-config",
-        "swww": "swww"
+        "swww": "swww",
+        "wallpaper": "wallpaper"
       }
     },
     "rust-overlay": {
@@ -323,6 +324,19 @@
         "owner": "null-proto",
         "repo": "swww",
         "type": "github"
+      }
+    },
+    "wallpaper": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1771514725,
+        "narHash": "sha256-ClprfJf6Px0ergWSfoUCL4+LZeypIQQwkzHb5PF1OCM=",
+        "type": "tarball",
+        "url": "https://drive.usercontent.google.com/download?export=download&id=1WeWnU1OT6wJRA03q6LD0RJCrdjR_mrwm"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://drive.usercontent.google.com/download?export=download&id=1WeWnU1OT6wJRA03q6LD0RJCrdjR_mrwm"
       }
     }
   },

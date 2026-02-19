@@ -114,5 +114,9 @@
 		obs-studio
 		blender
     inputs.swww.packages.${pkgs.system}.swww
+
+# messaging
+    weechat
+		halloy
   ];
 }

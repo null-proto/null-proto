@@ -37,6 +37,7 @@ in
         # "${pkgs.hyprpaper}/bin/hyprpaper"
 				swww-daemon
         "sleep 1 && ${hyprctl} keyword animations:enabled true"
+        "sleep 1 && ${swww}/bin/swww img ${inputs.wallpaper}/wallpaper_red_tree.jpg"
       ];
 
       general = {

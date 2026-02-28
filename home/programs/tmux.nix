@@ -5,6 +5,15 @@
 unbind-key C-b
 set-option -g prefix m-x
 bind-key M-x send-prefix
+set-option -g mouse off
+
+# bind -n WheelUpPane if-shell -F -t= '#{mouse_any_flag}' 'send-keys -M' 'copy-mode -e; send-keys -M'
+# bind -n WheelDownPane select-pane -t=; send-keys -M
+
+# bind -n WheelUpPane if-shell -F '#{alternate_on}' 'send-keys -M' 'copy-mode -e; send-keys -M'
+# bind -n WheelDownPane if-shell -F '#{alternate_on}' 'send-keys -M'
+
+
 
 bind -n M-a select-pane -L   # Alt+a
 bind -n M-d select-pane -R   # Alt+d
@@ -56,7 +65,6 @@ set -g message-style 'fg=#181825 bg=#f38ba8, bold'
 
 set -sg escape-time 5
 
-set-option -g mouse off
 #set-option -g status-style fg=white,bg=#333349
 
 set -g base-index 1

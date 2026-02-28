@@ -14,7 +14,7 @@
         notification_limit = 20;
         progress_bar = true;
         progress_bar_height = 15;
-        progress_bar_frame_width = "0.5";
+        progress_bar_frame_width = ''0.5'';
 
         # Set the minimum width for the progress bar
         progress_bar_min_width = 200;
@@ -104,7 +104,7 @@
 
         # The spacing between lines.  If the height is smaller than the
         # font height, it will get raised to the font height.
-        line_height = "0.4";
+        line_height = ''0.4'';
 
         # Possible values are:
         # full: Allow a small subset of html markup in notifications:
@@ -140,7 +140,7 @@
         #   %n  progress value if set without any extra characters
         #   %%  Literal %
         # Markup is allowed
-        format ="<b>%s</b>\n%b";
+        format =''<b>%s</b>\n%b'';
 
         # Alignment of message text.
         # Possible values are "left", "center" and "right".

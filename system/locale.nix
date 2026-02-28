@@ -54,7 +54,11 @@
 			emoji = [ "Noto Color Emoji" "OpenMoji Color" ];
 			sansSerif = [ "ComicShannsMono Nerd Font" "Noto Color Emoji" ];
 			serif = [ "Atkinson Hyperlegible Next" "Noto Color Emoji" ];
-			monospace = [ "ComicShannsMono Nerd Font" "Noto Color Emoji" ];
+			monospace = [ 
+# "ComicShannsMono Nerd Font" 
+				"JetBrainsMonoNL Nerd Font Propo"
+				"Noto Color Emoji" 
+			];
 		};
 
 

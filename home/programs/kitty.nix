@@ -4,11 +4,11 @@
 
     font = {
       size = 10;
-      name = "JetBrainsMono Nerd Font";
+      name = "JetBrainsMono Nerd Font Propo";
     };
 
     settings = {
-      bold_font = "family='JetBrainsMono Nerd Font bold'";
+      bold_font = "family='JetBrainsMono NF ExtraBold'";
       italic_font = "family='maple mono nf'";
       italic_bold_font = "family='maple mono nf'";
       modify_font = "cell_height 0.7px underline_position 4 underline_thickness 150%";

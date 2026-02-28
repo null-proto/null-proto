@@ -51,6 +51,7 @@
     tree
     lsof
     lf
+		inotify-tools
 
 # system viewer
     htop

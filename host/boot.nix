@@ -39,7 +39,7 @@ in {
 
     kernelModules = [ "kvm-intel" "zfs" ];
     # extraModulePackages = with config.boot.kernelPackages; [ zfs ];
-    blacklistedKernelModules = [ "iwlwifi" ];
+    # blacklistedKernelModules = [ "iwlwifi" ];
     # kernelParams = [ "acpi_osi=\"! Windows 2020\"" ];
     kernelParams = [ "nvidia_drm.modeset=1" ];
     #   extraModprobeConfig = ''

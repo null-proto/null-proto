@@ -112,7 +112,7 @@ in
           repeat_rate = 30;
 
           touchpad = {
-            disable_while_typing = true;
+            disable_while_typing = false;
             tap-to-click = true;
             tap-and-drag = true;
             tap_button_map = "lrm";

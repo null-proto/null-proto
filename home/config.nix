@@ -24,6 +24,7 @@
     ./programs/neovim.nix
     ./programs/ssh.nix
 		./programs/office.nix
+		# ./programs/caelestia.nix
 
     ./programs/extra.nix
 
@@ -33,6 +34,7 @@
     ./desktop/xdg.nix
     ./desktop/dcong.nix
     ./desktop/home.nix
+
   ];
 
   # services.ssh-agent.enable = true;

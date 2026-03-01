@@ -1,3 +1,6 @@
+
+{
+config = 	''
 configuration{
   modi: "run,drun,window,combi,calc,emoji";
   icon-theme: "Colloid-Dark";
@@ -211,4 +214,6 @@ scrollbar {
   border:       0;
   padding:      0;
 	margin : 0px 0px 0px 6px;
+}
+'';
 }

@@ -12,7 +12,7 @@ let
   fileManager = "${pkgs.nautilus}/bin/nautilus -w";
   rofiShow = "rofi -show";
   rofiDmenu = "rofi -dmenu";
-  swww = inputs.swww.packages.${pkgs.system}.swww;
+  swww = inputs.swww.packages.${pkgs.stdenv.hostPlatform.system}.swww;
   swww-daemon = "${swww}/bin/swww-daemon";
 
   notify = "${pkgs.dunst}/bin/dunstify";
@@ -112,7 +112,7 @@ in
           repeat_rate = 30;
 
           touchpad = {
-            disable_while_typing = false;
+            # disable_while_typing = true;
             tap-to-click = true;
             tap-and-drag = true;
             tap_button_map = "lrm";
@@ -159,6 +159,10 @@ in
       ];
 
       bind = [
+# hardware
+			  "${mod}, F10 ,exec,  hyprctl keyword device[asuf1204:00-2808:0104-touchpad]:enabled toggle"
+			  # "${mod}, F9 ,exec, hyprctl keyword device[asuf1204:00-2808:0104-touchpad]:enabled true"
+
         "${mod}, RETURN, exec, ${terminal}"
         "${mod}, TAB, exec, ${terminal}"
         "${mod}, F, fullscreen,"

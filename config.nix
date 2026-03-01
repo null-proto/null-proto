@@ -34,7 +34,7 @@ in
 
     allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "joypixels" ];
 
-    joypixels.acceptLicense = true;
+    # joypixels.acceptLicense = true;
 
 		# Allow unfree packages
 		allowUnfree = true;

@@ -30,6 +30,13 @@
 			# type = "tar";
 			# sha256 = "sha25-9854ccd135b26840d16df63a928a5170dc5c68e7524e71a0ed2fc47b64162abf";
 		};
+
+    # quickshell
+		# caelestia = {
+		#     url = "github:caelestia-dots/shell";
+		#     inputs.nixpkgs.follows = "nixpkgs";
+		#   };
+
   };
   outputs = { nixpkgs , catppuccin , home-manager , nix-on-droid, ...}@inputs:
   let
@@ -66,7 +73,9 @@
                 catppuccin.homeModules.catppuccin {
                   imports = [ ./home/colors/mocha.nix ];
                 }
-              ];
+
+								# caelestia.homeManagerModules.default
+							];
             };
           }
         ];

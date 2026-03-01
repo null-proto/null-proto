@@ -114,10 +114,14 @@
 		libreoffice-fresh
 		obs-studio
 		blender
-    inputs.swww.packages.${pkgs.system}.swww
+    inputs.swww.packages.${pkgs.stdenv.hostPlatform.system}.swww
+		# inputs.caelestia-shell.packages.${pkgs.stdenv.hostPlatform.system}.default
 
 # messaging
     weechat
 		halloy
+
+
+		quickshell
   ];
 }

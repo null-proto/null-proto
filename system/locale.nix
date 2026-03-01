@@ -31,7 +31,7 @@
       noto-fonts-color-emoji
 			openmoji-color
 			# whatsapp-emoji-font
-			joypixels
+			# joypixels
 
       inter
 			atkinson-hyperlegible-next

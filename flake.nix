@@ -7,7 +7,7 @@
 
 	  swww.url = "github:null-proto/swww";
 
-		agenix.url = "github:ryantm/agenix";
+		# agenix.url = "github:ryantm/agenix";
 
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -51,7 +51,6 @@
         specialArgs = inputs;
 
         modules = [
-				  agenix.nixosModules.default
           ./config.nix
           ./host/config.nix
           ./system/config.nix

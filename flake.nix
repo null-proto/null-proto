@@ -7,6 +7,7 @@
 
 	  swww.url = "github:null-proto/swww";
 
+		agenix.url = "github:ryantm/agenix";
 
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -38,7 +39,7 @@
 		#   };
 
   };
-  outputs = { nixpkgs , catppuccin , home-manager , nix-on-droid, ...}@inputs:
+  outputs = { nixpkgs , catppuccin , home-manager , nix-on-droid, agenix, ...}@inputs:
   let
     inherit (import ./users.nix) profile;
 
@@ -50,6 +51,7 @@
         specialArgs = inputs;
 
         modules = [
+				  agenix.nixosModules.default
           ./config.nix
           ./host/config.nix
           ./system/config.nix
@@ -62,7 +64,7 @@
           }
 
           home-manager.nixosModules.home-manager {
-            home-manager.backupFileExtension = ".backup";
+            home-manager.backupFileExtension = ".old";
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = { inherit inputs; };

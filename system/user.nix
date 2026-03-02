@@ -3,17 +3,33 @@ let
   inherit (import ../users.nix) profile;
 in
 {
+	users = {
+		mutableUsers = false;
 
-  # users.groups.libvirtd.members = [ "${profile.username}" ];
+# some groups cannot work this for [`docker`] and [`adbusers`] group
+# use [`members`]
+		users.${profile.username} = {
+			shell = pkgs.fish;
+			isNormalUser = true;
+			home = profile.homeDir;
+			description = profile.fullname;
 
-  users.users.${profile.username} = {
-    shell = pkgs.fish;
-    isNormalUser = true;
-    home = profile.homeDir;
-    description = profile.fullname;
-    group = "wheel";
-    extraGroups = [ "networkmanager" "video" "audio" "kvm" "disk" "adbusers" "docker" "libvirtd" ];
-    packages = [];
-  };
+			hashedPassword = profile.hash;
+			group = "wheel";
+
+			extraGroups = [ "networkmanager" "video" "audio" "kvm" "disk" ];
+			packages = [];
+		};
+
+# # members
+# these groups are equalent to root
+		# extraGroups.docker.members = [ profile.username ];
+		# extraGroups.adbusers.members = [ profile.username ];
+	  groups = {
+			docker.members = [ profile.username ];
+		  adbusers.members = [ profile.username ];
+		  libvirtd.members = [ profile.username ];
+		};
+	};
 }
 

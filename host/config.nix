@@ -40,7 +40,7 @@
     };
 
     nvidiaSettings = false; # gui app
-    open = false;
+    open = true;
     package = config.boot.kernelPackages.nvidiaPackages.latest;
   };
 

@@ -14,8 +14,14 @@ in
     auto-optimise-store = true;
 
 		# cuda binary cache
-		# substituters = [ "https://cache.nixos-cuda.org" ];
-		# trusted-public-keys = [ "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M=" ];
+		substituters = [ 
+			"https://cache.nixos-cuda.org"
+			"https://nix-community.cachix.org"
+		];
+		trusted-public-keys = [
+			"cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
+			"nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+		];
   };
 
   
@@ -28,11 +34,12 @@ in
 
 
   nixpkgs.config = {
-		#   allowUnfreePredicate = pkgs._cuda.lib.allowUnfreeCudaPredicate;
+		# allowUnfreePredicate = pkgs._cuda.lib.allowUnfreeCudaPredicate;
 		# cudaSupport = true;
-		# cudaForwardCompat = true;
+		# cudaCapabilities = [ "8.6" ];
+		# cudaForwardCompat = false;
 
-    allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "joypixels" ];
+    # allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "joypixels"  "_cuda" ];
 
     # joypixels.acceptLicense = true;
 

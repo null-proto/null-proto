@@ -4,6 +4,8 @@
     fullname = "ring1";
     homeDir = "/dyn/r1ng";
 
-		hash = "$6$cr/HBrSpabEfE3RF$eOXZ/Eo6JO5z22HPqCKP2dVYr5FQceQsxlBLPGq2.uh1etbOssxc4qXXfBXa9qFWzUqLDoLkk0yKQj5RT48Ac/";
+		hash = "$y$j9T$.vhFdM5G7mRp.HvAo70QU/$HwzZb/pz8.LnZZb/8HrVSGz9NGxRrS2BUi0fvNXLCC0";
+
+		rootHash = "$y$j9T$uhzVFAtGPv4Zq1nZpcE/O/$A5PKWIjsuaNKvFEb6AOQpu5qrh19QWxqp1Mi/uskKU.";
   };
 }

@@ -21,6 +21,8 @@ in
 			packages = [];
 		};
 
+		users.root.hashedPassword = profile.rootHash;
+
 # # members
 # these groups are equalent to root
 		# extraGroups.docker.members = [ profile.username ];

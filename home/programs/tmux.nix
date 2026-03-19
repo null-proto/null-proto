@@ -81,7 +81,7 @@ set -g pane-border-style 'fg=#45475a,bg=terminal'
 set -g pane-active-border-style 'fg=#f2cdcd,bg=terminal'
 
 #set -g status-right-length 27
-#set -g status-right '#[fg=black]• #[fg=blue,bright]#(echo "$(pwd | string shorten -m25 --left)  ")#[default]'
+#set -g status-right '#[fg=black]• #[fg=blue,bright]#(echo "$(pwd | sed 's/^.*\(.*\/.*\/.*\)/...\1/')  ")#[default]'
 
 run-shell -b 'tmux rename-window PRIME'
 bind n run-shell "tmux new -s tmux_$(tmux list-sessions | wc -l)"

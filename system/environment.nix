@@ -1,8 +1,26 @@
 { pkgs , ... }: {
 
   environment = {
+		plasma6.excludePackages = with pkgs.kdePackages; [
+		  ark
+			akonadi-calendar
+			akonadiconsole
+			akonadi-contacts
+
+			breeze-plymouth
+
+			calligra
+			okular
+
+			
+			dragon
+			discover
+
+			gwenview
+		];
+
 		pathsToLink = [ 
-			"/share/doc"
+		"/share/doc"
 			"/share/applications"
 			"/share/xdg-desktop-portal"
 		];

@@ -1,4 +1,7 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:let
+session = "/run/current-system/sw/share/wayland-sessions";
+
+in {
 
   services = {
     speechd.enable = false;
@@ -10,12 +13,18 @@
     qemuGuest.enable = true;
     # spice-vdagentd.enable = true;
 
+		desktopManager.plasma6  = {
+			enable = true;
+			enableQt5Integration = false;
+			notoPackage = pkgs.noto-fonts;
+		};
+
+
     greetd = {
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.tuigreet}/bin/tuigreet";
-          session = "${pkgs.hyprland}/share/wayland-session";
+          command = "${pkgs.tuigreet}/bin/tuigreet --sessions ${session} --cmd=''";
           user = "greeter";
         };
       };

@@ -1,5 +1,8 @@
 { pkgs , ... } :
 let
+# same as `services.create_ap` but manual
+#
+
   wifi-iface = "wlo1";
   virtual-iface = "hotspot";
 
@@ -56,6 +59,18 @@ in{
 			channel = 6;
 			wpa = true;
 			wpaPassphrase = "12345678";
+
+			radios.${virtual-iface} = {
+				band = "2g";
+				channel = 0; # Enable automatic channel selection (ACS). Use only if your hardware supports it.
+				# countryCode = "US";
+
+				wifi6.enable = true;
+				networks.wlp3s0 = {
+					ssid = "Nix NAT AP 2.5G";
+					authentication.mode = "none";
+				};
+			};
 		};
 
 		dnsmasq = {

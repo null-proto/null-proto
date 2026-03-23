@@ -1,6 +1,6 @@
 { pkgs ,... }:
 let 
-  inherit (import ../users.nix) profile;
+  inherit (import ../secrets.nix) profile;
 in
 {
 	users = {

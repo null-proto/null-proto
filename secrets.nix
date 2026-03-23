@@ -8,4 +8,8 @@
 
 		rootHash = "$y$j9T$uhzVFAtGPv4Zq1nZpcE/O/$A5PKWIjsuaNKvFEb6AOQpu5qrh19QWxqp1Mi/uskKU.";
   };
+
+	system-vars = {
+		AP_PASSWD = "x1b6_XXXX";
+	};
 }

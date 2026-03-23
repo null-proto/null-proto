@@ -60,7 +60,7 @@ in{
 				# countryCode = "US";
 
 				wifi6.enable = true;
-				networks.wlp3s0 = {
+				networks.${virtual-iface} = {
 					ssid = "Nix NAT AP 2.5G";
 					authentication.mode = "none";
 				};

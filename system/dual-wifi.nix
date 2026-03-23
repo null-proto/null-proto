@@ -1,4 +1,4 @@
-{ pkgs } :
+{ pkgs , ... } :
 let
   wifi-iface = "wlo1";
   virtual-iface = "hotspot";

@@ -53,12 +53,6 @@ in{
 	services = {
 		hostapd = {
 			enable = true;
-			interface = virtual-iface;
-			ssid = "Nix NAT Access Point";
-			hwMode = "g";
-			channel = 6;
-			wpa = true;
-			wpaPassphrase = "12345678";
 
 			radios.${virtual-iface} = {
 				band = "2g";

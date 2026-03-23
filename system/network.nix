@@ -29,7 +29,6 @@
 					{ address = "10.100.100.1"; prefixLength = 24; }
 				];
 			};
-
 		};
 
 

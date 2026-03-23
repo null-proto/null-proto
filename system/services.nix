@@ -19,8 +19,6 @@ in {
 			notoPackage = pkgs.noto-fonts;
 		};
 
-
-
     greetd = {
       enable = true;
       settings = {

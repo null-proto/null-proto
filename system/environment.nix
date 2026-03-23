@@ -23,7 +23,7 @@
 		];
 
 		pathsToLink = [ 
-		"/share/doc"
+			"/share/doc"
 			"/share/applications"
 			"/share/xdg-desktop-portal"
 		];
@@ -35,8 +35,8 @@
 		};
 
     systemPackages = with pkgs; [
-			zfs
-			zfstools
+			# zfs
+			# zfstools
 			# qemu
 			wl-clipboard
 			man-pages

@@ -56,7 +56,7 @@
 # system viewer
     htop
     atop
-    neofetch
+    # neofetch , since unmaintained
     fastfetch
     cyme
 		nix-tree
@@ -73,7 +73,8 @@
     nwg-look
 
 # audio utility
-    helvum
+    # helvum , unmaintained too
+		crosspipe # helvum alternative
     audacious
     playerctl
 

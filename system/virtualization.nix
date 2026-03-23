@@ -3,7 +3,7 @@
   virtualisation = {
     # waydroid.enable = true;
     # spiceUSBRedirection.enable = true;
-    libvirtd.enable = true;
+    libvirtd.enable = false;
   };
 
   # support for other cup arch

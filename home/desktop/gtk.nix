@@ -8,12 +8,15 @@
       # size = 24;
       #   };
 
+    colorScheme = "dark";
 
     font = {
       package = pkgs.nerd-fonts.comic-shanns-mono;
       name = "ComicShannsMono Nerd Font";
       size = 12;
     };
+
+		
 
     iconTheme = {
       # package = pkgs.vimix-icon-theme;

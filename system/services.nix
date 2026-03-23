@@ -14,10 +14,11 @@ in {
     # spice-vdagentd.enable = true;
 
 		desktopManager.plasma6  = {
-			enable = true;
+			enable = false;
 			enableQt5Integration = false;
 			notoPackage = pkgs.noto-fonts;
 		};
+
 
 
     greetd = {

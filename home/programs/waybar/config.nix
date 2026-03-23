@@ -147,7 +147,7 @@
           format = "{icon} {volume}";
           format-muted = "󰸈 --";
           format-icons = { default = [ "" "󱄠" ]; };
-          on-click = "helvum";
+          on-click = "crosspipe";
         };
 
         # "custom/lock": {

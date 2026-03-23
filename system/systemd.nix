@@ -1,5 +1,7 @@
 { pkgs ,... } : {
 
+	systemd.services.hostapd.wantedBy = [ ];
+
   systemd.services.greetd.serviceConfig = {
     Type = "idle";
     StandardInput = "tty";

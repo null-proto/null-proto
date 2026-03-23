@@ -5,6 +5,11 @@
     hostName = "nix";
     networkmanager.enable = true;
 
+		wireless = {
+			enable = true;
+			interfaces = [ "wlo1" ];
+		};
+
 		iproute2.enable = true;
 
 		interfaces.lo.ipv4.addresses = [
@@ -14,14 +19,17 @@
 
 		bridges."tornet".interfaces = [];
 
-		interfaces.tornet = {
-			name = "tornet";
-			useDHCP = false;
-			virtual = true;
-			virtualType = "tun";
-			ipv4.addresses = [ 
-			  { address = "10.100.100.1"; prefixLength = 24; }
-			];
+		interfaces = {
+			tornet = {
+				name = "tornet";
+				useDHCP = false;
+				virtual = true;
+				virtualType = "tun";
+				ipv4.addresses = [ 
+					{ address = "10.100.100.1"; prefixLength = 24; }
+				];
+			};
+
 		};
 
 

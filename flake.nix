@@ -41,8 +41,7 @@
   };
   outputs = { nixpkgs , catppuccin , home-manager , nix-on-droid, agenix, ...}@inputs:
   let
-    inherit (import ./users.nix) profile;
-
+    inherit (import ./secrets.nix) profile;
   in
   {
     nixosConfigurations = {

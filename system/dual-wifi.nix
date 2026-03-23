@@ -56,8 +56,12 @@ in{
 
 			radios.${virtual-iface} = {
 				band = "2g";
-				channel = 0; # Enable automatic channel selection (ACS). Use only if your hardware supports it.
+				channel = 6; # Enable automatic channel selection (ACS). Use only if your hardware supports it.
 				# countryCode = "US";
+
+				settings = {
+					channel = 6;
+				};
 
 				wifi6.enable = true;
 				networks.${virtual-iface} = {
@@ -72,6 +76,11 @@ in{
 			settings = {
 				interface = virtual-iface;
 				dhcp-range = "10.0.7.10,10.0.7.100,12h";
+				# add this 😤
+				server = [
+					"8.8.8.8"
+					"1.1.1.1"
+				];
 			};
 		};
 	};

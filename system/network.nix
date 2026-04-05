@@ -7,7 +7,6 @@
 
 		wireless = {
 			enable = true;
-			interfaces = [ "wlo1" ];
 		};
 
 		iproute2.enable = true;

@@ -76,7 +76,6 @@ in{
 			settings = {
 				interface = virtual-iface;
 				dhcp-range = "10.0.7.10,10.0.7.100,12h";
-				# add this 😤
 				server = [
 					"8.8.8.8"
 					"1.1.1.1"

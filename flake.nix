@@ -45,6 +45,40 @@
   in
   {
     nixosConfigurations = {
+      mini = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = inputs;
+
+        modules = [
+          ./host/mini.nix
+          ./home/mini.nix
+          ./system/mini.nix
+
+          catppuccin.nixosModules.catppuccin {
+            catppuccin.enable = false;
+            catppuccin.flavor = "mocha";
+            catppuccin.accent = "yellow";
+            catppuccin.tty.enable = true;
+          }
+
+          home-manager.nixosModules.home-manager {
+            home-manager.backupFileExtension = "old";
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.users.${profile.username} = {
+              imports = [
+                ./home/mini.nix
+
+                catppuccin.homeModules.catppuccin {
+                  imports = [ ./home/colors/nod.nix ];
+                }
+							];
+            };
+          }
+        ];
+      };
+
       nix = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = inputs;

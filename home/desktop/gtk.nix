@@ -10,12 +10,19 @@
 
     colorScheme = "dark";
 
+		gtk3.extraConfig = {
+      gtk-decoration-layout = "";
+    };
+
+    gtk4.extraConfig = {
+      gtk-decoration-layout = "";
+    };
+
     font = {
       package = pkgs.nerd-fonts.comic-shanns-mono;
       name = "ComicShannsMono Nerd Font";
       size = 12;
     };
-
 		
 
     iconTheme = {

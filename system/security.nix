@@ -5,8 +5,6 @@
       wheelNeedsPassword = false;
     };
 
-		
-
     rtkit.enable = true;
 
     pam.services = {

@@ -9,5 +9,9 @@
       uris = ["qemu:///system"];
     };
 
+		"org/gnome/desktop/wm/preferences" = {
+			button-layout=":";
+		};
+
   };
 }

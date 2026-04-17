@@ -25,6 +25,7 @@
 
 # network / encryption utility
     openssl
+		age
     wget
     curl
     nmap
@@ -103,6 +104,7 @@
     # android-studio
 
 # hex
+    xxd
 		hexdump
 		hexyl
 		hex
@@ -119,10 +121,6 @@
 		# inputs.caelestia-shell.packages.${pkgs.stdenv.hostPlatform.system}.default
 
 # messaging
-    weechat
 		halloy
-
-
-		quickshell
   ];
 }

@@ -2,7 +2,7 @@
   programs.rofi = {
     enable = true;
     package = pkgs.rofi.override { plugins= [ pkgs.rofi-emoji pkgs.rofi-calc ];};
-    theme = "blackglass";
+    theme = "fsf,fsf-noicon";
 
     extraConfig = {
       modi = "drun,run,window,calc,emoji,combi";

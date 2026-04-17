@@ -43,6 +43,8 @@
 
     # configFile."rofi/themes/blackglass.rasi".source = (import ./rofi/blackglass.nix).config ;
     configFile."rofi/themes/blackglass.rasi".text = (import ./rofi/blackglass.nix).config ;
+    configFile."rofi/themes/fsf.rasi".text = (import ./rofi/fsf.nix).fsf;
+    configFile."rofi/themes/fsf-noicon.rasi".text = (import ./rofi/fsf.nix).fsf-noicon;
 
     configFile.nvim = {
       source = inputs.nvim-config;

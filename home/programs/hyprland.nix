@@ -1,4 +1,4 @@
-{ config , pkgs, inputs,  ...}:
+{ pkgs, inputs,  ...}:
 let
   grim = "${pkgs.grim}/bin/grim";
   slurp = "${pkgs.slurp}/bin/slurp";
@@ -13,7 +13,6 @@ let
   rofiShow = "rofi -show";
   rofiDmenu = "rofi -dmenu";
   swww = inputs.swww.packages.${pkgs.stdenv.hostPlatform.system}.swww;
-  swww-daemon = "${swww}/bin/swww-daemon";
 
   notify = "${pkgs.dunst}/bin/dunstify";
   hyprctl = "${pkgs.hyprland}/bin/hyprctl";
@@ -29,34 +28,33 @@ in
 
     settings = {
       monitor = [
-        "eDP-1,1980x1080@144, auto ,1"
+        "eDP-1,1980x1080@60, auto ,1"
       ];
 
       exec-once = [
         "${pkgs.waybar}/bin/waybar"
-        # "${pkgs.hyprpaper}/bin/hyprpaper"
-				swww-daemon
+				"${swww}/bin/swww-daemon"
         "sleep 1 && ${hyprctl} keyword animations:enabled true"
         "sleep 1 && ${swww}/bin/swww img ${inputs.wallpaper}/wallpaper_red_tree.jpg"
       ];
 
       general = {
-        gaps_in = 10;
-        gaps_out = 40;
+        gaps_in = 3;
+        gaps_out = 6;
         border_size = 3;
         "col.active_border" = "rgb(313244)";
-        "col.inactive_border" = "rgb(313244)";
+        "col.inactive_border" = "rgb(131624)";
         resize_on_border = true;
         allow_tearing = false;
         layout = "dwindle";
       };
 
       decoration = {
-        rounding = 3;
-        rounding_power = 3;
+        rounding = 0;
+        rounding_power = 0;
           active_opacity = "1.0";
           blur = {
-            enabled = true;
+            enabled = false;
             size = 0;
             passes = 6;
             new_optimizations = true;

@@ -50,6 +50,13 @@
         specialArgs = inputs;
 
         modules = [
+
+					({ modulesPath, ... }: {
+						imports = [
+							"${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
+						];
+					})
+
           ./host/mini.nix
           ./home/mini.nix
           ./system/mini.nix

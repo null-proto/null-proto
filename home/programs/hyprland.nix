@@ -1,4 +1,4 @@
-{ config , pkgs, inputs,  ...}:
+{ pkgs, inputs,  ...}:
 let
   grim = "${pkgs.grim}/bin/grim";
   slurp = "${pkgs.slurp}/bin/slurp";
@@ -10,10 +10,12 @@ let
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
   playerctl = "${pkgs.playerctl}/bin/playerctl";
   fileManager = "${pkgs.nautilus}/bin/nautilus -w";
-  rofiShow = "rofi -show";
-  rofiDmenu = "rofi -dmenu";
+  rofiShow = "rofi -config ~/.config/rofi/themes/fsf.rasi -show";
+  rofiDmenu = "rofi -config ~/.config/rofi/themes/fsf.rasi -dmenu";
   swww = inputs.swww.packages.${pkgs.stdenv.hostPlatform.system}.swww;
-  swww-daemon = "${swww}/bin/swww-daemon";
+
+	lock = "printf \"Locked on: $(date)\\nstarting hyprlock ...\\n\" > ~/.cache/authlog && ${pkgs.hyprlock}/bin/hyprlock && echo \"login $(date -R)\" >> ~/.cache/authlog && cp ~/.cache/authlog ~/.cache/login/$(date +%s).txt";
+	loginlock = "printf \"Last boot: $(date)\\nstarting hyprlock ...\\n\" > ~/.cache/authlog && ${pkgs.hyprlock}/bin/hyprlock && echo \"login $(date -R)\" >> ~/.cache/authlog && mkdir -p ~/.cache/login && cp ~/.cache/authlog ~/.cache/login/init-$(date +%s).txt";
 
   notify = "${pkgs.dunst}/bin/dunstify";
   hyprctl = "${pkgs.hyprland}/bin/hyprctl";
@@ -29,34 +31,34 @@ in
 
     settings = {
       monitor = [
-        "eDP-1,1980x1080@144, auto ,1"
+        "eDP-1,1980x1080@60, auto ,1"
       ];
 
       exec-once = [
         "${pkgs.waybar}/bin/waybar"
-        # "${pkgs.hyprpaper}/bin/hyprpaper"
-				swww-daemon
+				"${swww}/bin/swww-daemon"
         "sleep 1 && ${hyprctl} keyword animations:enabled true"
-        "sleep 1 && ${swww}/bin/swww img ${inputs.wallpaper}/wallpaper_red_tree.jpg"
+				loginlock
+        # "sleep 1 && ${swww}/bin/swww img ${inputs.wallpaper}/wallpaper_red_tree.jpg"
       ];
 
       general = {
-        gaps_in = 10;
-        gaps_out = 40;
+        gaps_in = 3;
+        gaps_out = 6;
         border_size = 3;
         "col.active_border" = "rgb(313244)";
-        "col.inactive_border" = "rgb(313244)";
+        "col.inactive_border" = "rgb(131624)";
         resize_on_border = true;
         allow_tearing = false;
         layout = "dwindle";
       };
 
       decoration = {
-        rounding = 3;
-        rounding_power = 3;
+        rounding = 0;
+        rounding_power = 0;
           active_opacity = "1.0";
           blur = {
-            enabled = true;
+            enabled = false;
             size = 0;
             passes = 6;
             new_optimizations = true;
@@ -70,11 +72,26 @@ in
       animations = {
         enabled = false;
         # first_launch_animation = false;
-        bezier = [ "myBezier, 0.05, 0.5, 0.9, 1" ];
+        bezier = [ 
+					"smooth, 0.05, 0.9, 0.95 , 1"
+					"smoothOut, 0.05, 0.1, 0.3 , 1"
+					"smoothOut2, 0.36, 0, 0.66, -0.56"
+					"snappypop, 0.13, 0.99, 0.29, 1.1"
+				];
         # animation = [ "windows, 1, 4, default , popin 80% , fade 20%" "workspaces, 1, 2, default" ];
         animation = [
-          "windows, 1, 4, default , slide bottom"
-          "workspaces, 1, 2, default"
+
+          "windowsMove, 1, 1.5, default,"
+
+          "windowsIn, 1, 3, smooth , slide top"
+          "windowsOut, 1, 3, smooth , slide top"
+
+          "layersIn, 1, 2, default , slide top"
+          "layersOut, 1, 2, default , slide top"
+
+					"fade, 0"
+
+          "workspaces, 1, 1, default"
         ];
       };
 
@@ -130,9 +147,9 @@ in
       };
 
       layerrule = [
-        "blur on, match:namespace rofi"
-        "ignore_alpha 0, match:namespace rofi"
-				"no_screen_share on, match:namespace waybar"
+        # "blur on, match:namespace rofi"
+        # "ignore_alpha 0, match:namespace rofi"
+				# "no_screen_share on, match:namespace waybar"
       ];
 
       windowrule = [
@@ -183,7 +200,8 @@ in
 
         "${mod} SHIFT, Q, killactive,"
         "${mod} SHIFT, M, exit,"
-        "${mod}, Z, exec, ${swaylock} --indicator-idle-visible -t --indicator-radius 200 --indicator-thickness 20 --ring-color 181825 --ring-clear-color 0070ff --separator-color 45475a --key-hl-color cdd6f4 --inside-color 11111b --inside-clear-color 94e2d5 --inside-caps-lock-color 45475a --inside-ver-color fab387 --inside-wrong-color f38ba8 -r --line-color 1e1e2e --line-clear-color 89dceb --line-caps-lock-color 313244 --line-ver-color f9e2af --line-wrong-color eba0ac --ring-color 181825 --ring-clear-color 89dceb --ring-caps-lock-color 313244 --ring-ver-color f9e2af --ring-wrong-color eba0ac --text-color 6c7086 --text-clear-color 313244 --text-caps-lock-color 181825 --text-ver-color f9e2af --text-wrong-color eba0ac --screenshot --effect-blur 7x9 --effect-vignette 0.5:0.4 --effect-pixelate 30 --clock --fade-in 0.1"
+        # "${mod}, Z, exec, ${swaylock} --indicator-idle-visible -t --indicator-radius 200 --indicator-thickness 20 --ring-color 181825 --ring-clear-color 0070ff --separator-color 45475a --key-hl-color cdd6f4 --inside-color 11111b --inside-clear-color 94e2d5 --inside-caps-lock-color 45475a --inside-ver-color fab387 --inside-wrong-color f38ba8 -r --line-color 1e1e2e --line-clear-color 89dceb --line-caps-lock-color 313244 --line-ver-color f9e2af --line-wrong-color eba0ac --ring-color 181825 --ring-clear-color 89dceb --ring-caps-lock-color 313244 --ring-ver-color f9e2af --ring-wrong-color eba0ac --text-color 6c7086 --text-clear-color 313244 --text-caps-lock-color 181825 --text-ver-color f9e2af --text-wrong-color eba0ac --screenshot --effect-blur 7x9 --effect-vignette 0.5:0.4 --effect-pixelate 30 --clock --fade-in 0.1"
+				"${mod}, Z, exec, ${lock}"
         "${mod}, left , movefocus, l"
         "${mod}, right, movefocus, r"
         "${mod}, up, movefocus, u"

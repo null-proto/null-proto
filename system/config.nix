@@ -11,6 +11,7 @@
     ./systemd.nix
 
     ./virtualization.nix
+		# ./dual-wifi.nix
 
     ./manuals.nix
 

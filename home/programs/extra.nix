@@ -25,6 +25,7 @@
 
 # network / encryption utility
     openssl
+		age
     wget
     curl
     nmap
@@ -56,7 +57,7 @@
 # system viewer
     htop
     atop
-    neofetch
+    # neofetch , since unmaintained
     fastfetch
     cyme
 		nix-tree
@@ -73,7 +74,8 @@
     nwg-look
 
 # audio utility
-    helvum
+    # helvum , unmaintained too
+		crosspipe # helvum alternative
     audacious
     playerctl
 
@@ -102,6 +104,7 @@
     # android-studio
 
 # hex
+    xxd
 		hexdump
 		hexyl
 		hex
@@ -118,10 +121,6 @@
 		# inputs.caelestia-shell.packages.${pkgs.stdenv.hostPlatform.system}.default
 
 # messaging
-    weechat
 		halloy
-
-
-		quickshell
   ];
 }

@@ -4,7 +4,7 @@ documentation = {
   enable = true;
   man.enable = true;
   man = {
-    generateCaches = true;
+    cache.enable = true;
     man-db.enable = true;
   };
 };

@@ -1,27 +1,16 @@
-{ pkgs , ... }: {
+{pkgs, ...} :
+{
+	imports = [
+	  ./manuals.nix
+		./network.nix
+		./security.nix
+		./user.nix
+	];
 
-	# annoying
+
 	xdg.sounds.enable = false;
 
   environment = {
-		plasma6.excludePackages = with pkgs.kdePackages; [
-		  ark
-			akonadi-calendar
-			akonadiconsole
-			akonadi-contacts
-
-			breeze-plymouth
-
-			calligra
-			okular
-
-			
-			dragon
-			discover
-
-			gwenview
-		];
-
 		pathsToLink = [ 
 			"/share/doc"
 			"/share/applications"
@@ -35,13 +24,10 @@
 		};
 
     systemPackages = with pkgs; [
-			# zfs
-			# zfstools
-			# qemu
-			wl-clipboard
 			man-pages
 			man-db
 			man
 		];
 	};
+
 }

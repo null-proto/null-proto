@@ -1,6 +1,5 @@
 { pkgs, ... }:let
 session = "/run/current-system/sw/share/wayland-sessions";
-
 in {
 
   services = {
@@ -14,21 +13,22 @@ in {
     # spice-vdagentd.enable = true;
 
 		desktopManager.plasma6  = {
-			enable = true;
+			enable = false;
 			enableQt5Integration = false;
 			notoPackage = pkgs.noto-fonts;
 		};
 
+		getty.autologinUser = null;
 
-    greetd = {
-      enable = true;
-      settings = {
-        default_session = {
-          command = "${pkgs.tuigreet}/bin/tuigreet --sessions ${session} --cmd=''";
-          user = "greeter";
-        };
-      };
-    };
+    # greetd = {
+    #   enable = true;
+    #   settings = {
+    #     default_session = {
+    #       command = "${pkgs.tuigreet}/bin/tuigreet --sessions ${session} --cmd=''";
+    #       user = "greeter";
+    #     };
+    #   };
+    # };
 
     pipewire = {
       enable = true;

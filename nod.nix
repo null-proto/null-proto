@@ -24,7 +24,7 @@ in
     backupFileExtension = "hm-bak";
     useGlobalPkgs = true;
 
-    config = import ./home/lite.nix;
+    config = import ./home/mini.nix;
   };
 
   # Set your time zone

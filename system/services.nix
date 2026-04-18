@@ -1,6 +1,6 @@
 { pkgs, ... }:let
 session = "/run/current-system/sw/share/wayland-sessions";
-
+inherit (import ../secrets.nix) profile;
 in {
 
   services = {
@@ -19,15 +19,17 @@ in {
 			notoPackage = pkgs.noto-fonts;
 		};
 
-    greetd = {
-      enable = true;
-      settings = {
-        default_session = {
-          command = "${pkgs.tuigreet}/bin/tuigreet --sessions ${session} --cmd=''";
-          user = "greeter";
-        };
-      };
-    };
+		services.getty.autologinUser = profile.username;
+
+    # greetd = {
+    #   enable = true;
+    #   settings = {
+    #     default_session = {
+    #       command = "${pkgs.tuigreet}/bin/tuigreet --sessions ${session} --cmd=''";
+    #       user = "greeter";
+    #     };
+    #   };
+    # };
 
     pipewire = {
       enable = true;

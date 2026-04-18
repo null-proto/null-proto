@@ -11,13 +11,14 @@ in
 		users.${profile.username} = {
 			shell = pkgs.fish;
 			isNormalUser = true;
+			linger = true;
 			home = profile.homeDir;
 			description = profile.fullname;
 
 			hashedPassword = profile.hash;
 			group = "wheel";
 
-			extraGroups = [ "networkmanager" "video" "audio" "kvm" "disk" ];
+			extraGroups = [ "networkmanager" "video" "audio" "kvm" "disk" "input" ];
 			packages = [];
 		};
 

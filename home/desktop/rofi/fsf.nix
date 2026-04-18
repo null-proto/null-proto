@@ -65,7 +65,7 @@ element-text, element-icon , mode-switcher {
 }
 
 window {
-  height: 386px;
+  height: 380px;
 	width: 100%;
   border: 0px;
 	padding: 0px;
@@ -120,12 +120,12 @@ listview {
 	border-color: transparent;
   margin: 0px 4px;
   columns: 5;
-  lines: 8;
+  lines: 10;
 	background-color: transparent;
 }
 
 element {
-  padding: 6px;
+  padding: 4px 6px;
 	margin : 0px;
 	border-radius: 0px;
   background-color: @base;
@@ -142,7 +142,6 @@ element-icon {
 
 selected.normal {
   size: 8px;
-	padding: 4px;
 	border-radius: 0px;
 	background-color: @base;
 }
@@ -179,17 +178,14 @@ element alternate.active {
 
 element selected.normal {
 	background-color: @base;
-	padding: 4px;
 }
 
 element selected.urgent {
 	background-color: @base;
-	padding: 4px;
 }
 
 element selected.active {
 	background-color: @base;
-	padding: 4px;
 }
 
 

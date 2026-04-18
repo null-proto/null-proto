@@ -12,7 +12,7 @@
 			"$font" = "VictorMono Nerd Font Bold";
 
 			general = {
-				hide_cursor = false;
+				hide_cursor = true;
 			};
 
 			animations = {
@@ -46,7 +46,7 @@
 
 				font_family = "$font";
 				placeholder_text = "LOCKED";
-				fail_text = "FAILED";
+				fail_text = "ACCESS DENIED";
 
 				# uncomment if you wish to display a message during authentication
 				check_text = "AUTH";
@@ -69,7 +69,7 @@
 
 			label  = [ {
 				monitor = "";
-				text = ''cmd[update:1000] date "+%Y-%m-%d %H:%m.%S"'';
+				text = ''cmd[update:1000] date "+%Y-%m-%d:%I:%m.%S %p %Z"'';
 				color ="rgba(205, 214, 244, 0.7)";
 				font_size = 12;
 				font_family = "$font";
@@ -83,7 +83,7 @@
 
 			{
 				monitor = "";
-				text =''cmd[] if [ -n "$FAIL" ]; then printf "login attempt: [$ATTEMPTS]\nLogin: $FAIL\nlibPAM failed: $PAMFAIL\n" >> ~/.cache/authlog; fi; while IFS= read -r line; do if [ -n "$line" ]; then echo "$line"; fi; done < ~/.cache/authlog'';
+				text =''cmd[] if [ -n "$FAIL" ]; then printf "login attempt: [$ATTEMPTS] on $(date -R)\nLogin: $FAIL\nlibPAM failed: $PAMFAIL\n" >> ~/.cache/authlog; fi; tail -20 ~/.cache/authlog'';
 				color ="rgba(205, 214, 244, 0.7)";
 				font_size = 12;
 				font_family ="$font";

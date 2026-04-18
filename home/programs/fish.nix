@@ -13,6 +13,14 @@
       bat = "bat -pn";
     };
 
+		loginShellInit = ''
+      # Start Hyprland automatically on tty1
+      if test -z "$DISPLAY"; and test "$XDG_VTNR" = "1"
+          exec ${pkgs.hyprland}/bin/start-hyprland
+      end
+    '';
+
+
     shellInit = ''
 if status is-interactive
     # Commands to run in interactive sessions can go here
@@ -32,8 +40,9 @@ set -xU MANROFFOPT '-P -c'
 function private_mode
   if test "$fish_private_mode"
     set -e fish_private_mode
+		echo Normal ...
   else
-    echo "Incognito"
+    echo "entering Incognito ..."
     set --universal fish_private_mode 1
   end
 end
@@ -46,35 +55,35 @@ function into
 end
       '';
 
-      asus_fan = ''
-function asus_fan
-  if ! test $argv[1]
-    return 1
-  end
-
-  for i in (ls "/sys/devices/platform/asus-nb-wmi/hwmon")
-    set i "/sys/devices/platform/asus-nb-wmi/hwmon/"$i
-    if test -e $i"/pwm1_auto_point1_temp"
-      break
-    end
-  end
-
-  set fan $argv[1]
-  set point $argv[2]
-
-  if test $argv[3]
-    set speed $argv[3]
-    set temp $(cat "$i/pwm$fan""_auto_point$point""_temp")
-    set p_speed $(cat "$i/pwm$fan""_auto_point$point""_pwm")
-    printf "point $point => temperature: $temp speed: $p_speed >> $speed\n"
-    sudo bash -c "echo $speed > $i/pwm$fan""_auto_point$point""_pwm"
-  else
-    set temp $(cat "$i/pwm$fan""_auto_point$point""_temp")
-    set p_speed $(cat "$i/pwm$fan""_auto_point$point""_pwm")
-    printf "point $point => temperature: $temp C speed: $p_speed\n"
-  end
-end
-      '';
+#       asus_fan = ''
+# function asus_fan
+#   if ! test $argv[1]
+#     return 1
+#   end
+#
+#   for i in (ls "/sys/devices/platform/asus-nb-wmi/hwmon")
+#     set i "/sys/devices/platform/asus-nb-wmi/hwmon/"$i
+#     if test -e $i"/pwm1_auto_point1_temp"
+#       break
+#     end
+#   end
+#
+#   set fan $argv[1]
+#   set point $argv[2]
+#
+#   if test $argv[3]
+#     set speed $argv[3]
+#     set temp $(cat "$i/pwm$fan""_auto_point$point""_temp")
+#     set p_speed $(cat "$i/pwm$fan""_auto_point$point""_pwm")
+#     printf "point $point => temperature: $temp speed: $p_speed >> $speed\n"
+#     sudo bash -c "echo $speed > $i/pwm$fan""_auto_point$point""_pwm"
+#   else
+#     set temp $(cat "$i/pwm$fan""_auto_point$point""_temp")
+#     set p_speed $(cat "$i/pwm$fan""_auto_point$point""_pwm")
+#     printf "point $point => temperature: $temp C speed: $p_speed\n"
+#   end
+# end
+#       '';
 
     };
 

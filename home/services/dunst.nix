@@ -14,7 +14,7 @@
         notification_limit = 20;
         progress_bar = true;
         progress_bar_height = 15;
-        progress_bar_frame_width = ''0.5'';
+        progress_bar_frame_width = 1;
 
         # Set the minimum width for the progress bar
         progress_bar_min_width = 200;
@@ -29,7 +29,7 @@
         # is set to 0 this option will be ignored.
         progress_bar_corners = "all";
         
-        highlight = "#7c7f93";
+        highlight = "#f9e2af";
 
         # Corner radius for the icon image.
         icon_corner_radius = 0;
@@ -67,13 +67,13 @@
         frame_width = 2;
 
         # Defines color of the frame around the notification window.
-        frame_color = "#4c4f69";
+        frame_color = "#313244";
 
         # Size of gap to display between notifications - requires a compositor.
         # If value is greater than 0, separator_height will be ignored and a border
         # of size frame_width will be drawn around each notification instead.
         # Click events on gaps do not currently propagate to applications below.
-        gap_size = 0;
+        gap_size = 12;
 
         # Define a color for the separator.
         # possible values are:
@@ -100,11 +100,11 @@
 
         ### Text ###
 
-        font = "inter 10.1";
+        font = "VictorMono Nerd Font Bold 10.6";
 
         # The spacing between lines.  If the height is smaller than the
         # font height, it will get raised to the font height.
-        line_height = ''0.4'';
+        line_height = 1;
 
         # Possible values are:
         # full: Allow a small subset of html markup in notifications:
@@ -178,7 +178,7 @@
         enable_recursive_icon_lookup = true;
 
         # Set icon theme (only used for recursive icon lookup)
-        icon_theme = "Colloid-Light, Adwaita, breeze";
+        icon_theme = "Colloid-Dark, Adwaita, breeze";
         # You can also set multiple icon themes, with the leftmost one being used first.
         # icon_theme = "Adwaita, breeze"
 
@@ -194,7 +194,7 @@
         max_icon_size = 48;
 
         # Paths to default icons (only necessary when not using recursive icon lookup)
-        icon_path = "~/.icons/Colloid-Light/apps/scalable";
+        icon_path = "~/.icons/Colloid-Dark/apps/scalable";
 
         ### History ###
 
@@ -227,7 +227,7 @@
         # corners.
         # The radius will be automatically lowered if it exceeds half of the
         # notification height to avoid clipping text and/or icons.
-        corner_radius = 3;
+        corner_radius = 0;
 
         # Define which corners to round when drawing the window. If the corner radius
         # is set to 0 this option will be ignored.
@@ -294,18 +294,21 @@
       };
 
       urgency_low = {
-        background = "#eff1f5";
-        foreground = "#4c4f69";
-        frame_color = "#bcc0cc";
+				background="#131624";
+				foreground="#cdd6f4";
+				frame_color="#1e1e2e";
+
         timeout = 20;
         override_pause_level = 30;
         # Icon for notifications with normal urgency
         default_icon = "~/.config/dunst/icons/question.svg";
       };
+
       urgency_normal = {
-        background = "#eff1f5";
-        foreground = "#4c4f69";
-        frame_color = "#bcc0cc";
+				background="#131624";
+				foreground="#cdd6f4";
+				frame_color="#1e1e2e";
+
         timeout = 40;
         override_pause_level = 30;
         # Icon for notifications with normal urgency
@@ -313,9 +316,10 @@
       };
 
       urgency_critical = {
-        background = "#eff1f5";
-        foreground = "#4c4f69";
-        frame_color = "#bcc0cc";
+				background="#131624";
+				foreground="#f77274";
+				frame_color="#1a1327";
+
         timeout = 0;
         override_pause_level = 30;
         # Icon for notifications with normal urgency

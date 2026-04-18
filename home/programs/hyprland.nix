@@ -14,7 +14,8 @@ let
   rofiDmenu = "rofi -config ~/.config/rofi/themes/fsf.rasi -dmenu";
   swww = inputs.swww.packages.${pkgs.stdenv.hostPlatform.system}.swww;
 
-	lock = "printf \"Locked on: $(date)\\nstarting lock ...\\n\" > ~/.cache/authlog && ${pkgs.hyprlock}/bin/hyprlock";
+	lock = "printf \"Locked on: $(date)\\nstarting hyprlock ...\\n\" > ~/.cache/authlog && ${pkgs.hyprlock}/bin/hyprlock && echo \"login $(date -R)\" >> ~/.cache/authlog && cp ~/.cache/authlog ~/.cache/login/$(date +%s).txt";
+	loginlock = "printf \"Last boot: $(date)\\nstarting hyprlock ...\\n\" > ~/.cache/authlog && ${pkgs.hyprlock}/bin/hyprlock && echo \"login $(date -R)\" >> ~/.cache/authlog && mkdir -p ~/.cache/login && cp ~/.cache/authlog ~/.cache/login/init-$(date +%s).txt";
 
   notify = "${pkgs.dunst}/bin/dunstify";
   hyprctl = "${pkgs.hyprland}/bin/hyprctl";
@@ -37,6 +38,7 @@ in
         "${pkgs.waybar}/bin/waybar"
 				"${swww}/bin/swww-daemon"
         "sleep 1 && ${hyprctl} keyword animations:enabled true"
+				loginlock
         # "sleep 1 && ${swww}/bin/swww img ${inputs.wallpaper}/wallpaper_red_tree.jpg"
       ];
 

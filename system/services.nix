@@ -1,6 +1,5 @@
 { pkgs, ... }:let
 session = "/run/current-system/sw/share/wayland-sessions";
-inherit (import ../secrets.nix) profile;
 in {
 
   services = {
@@ -19,7 +18,7 @@ in {
 			notoPackage = pkgs.noto-fonts;
 		};
 
-		services.getty.autologinUser = profile.username;
+		getty.autologinUser = null;
 
     # greetd = {
     #   enable = true;
